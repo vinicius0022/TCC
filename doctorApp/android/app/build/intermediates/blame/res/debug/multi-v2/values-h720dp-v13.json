@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\silas\\CursoReact\\TCC\\doctorApp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
+            "outputFile": "C:\\Users\\vinic\\Documents\\TCC\\doctorApp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-h720dp-v13\\values-h720dp-v13.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\silas\\.gradle\\caches\\transforms-2\\files-2.1\\fc95f0e032225dc2c7c22afbfdb31fa4\\appcompat-1.1.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\vinic\\.gradle\\caches\\transforms-2\\files-2.1\\fc95f0e032225dc2c7c22afbfdb31fa4\\appcompat-1.1.0\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

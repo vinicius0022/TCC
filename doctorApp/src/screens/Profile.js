@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { logout } from '../store/actions/User'
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
-import { Gravatar } from 'react-native-gravatar'
+import { StyleSheet, Text, View} from 'react-native'
 
 class Profile extends Component {
     
@@ -15,39 +14,66 @@ class Profile extends Component {
 
         const options = { email: this.props.email, secure: true }
         return(
-
             <View style={styles.container}>
-                <Gravatar options={options}
-                style={styles.avatar} />
-                <Text style={styles.nickname}>{this.props.name}</Text>
-                <Text style={styles.email}>{this.props.email}</Text>
-                <TouchableOpacity onPress={this.logout} style={styles.button}>
-                    <Text style={styles.buttonText}>Sair</Text>
-                </TouchableOpacity>
+                <View style={styles.header}>
+                    <Text>Header</Text>
+                </View>
+                <View style={styles.box}>
+                    <View style={styles.inner}>
+                        <Text>Inserir novo paciente</Text>
+                    </View>
+                </View>
+                <View style={styles.box}>
+                    <View style={styles.inner}>
+                        <Text>Listar todos os pacientes</Text>
+                    </View>
+                </View>
+                <View style={styles.box}>
+                    <View style={styles.inner}>
+                        <Text>Meu perfil</Text>
+                    </View>
+                </View>
+                <View style={styles.box}>
+                    <View style={styles.inner}>
+                        <Text>Sair</Text>
+                    </View>
+                </View>
             </View>
         )
     }
 }
 
-
 const styles = StyleSheet.create({
     container:{
-        flex:1,
-        alignItems:'center',
+        width: '100%',
+        height: '75%',
+        padding: 5,
+        flexDirection: 'row',
+        flexWrap: 'wrap'
     },
-    avatar:{
-        width: 150,
-        height: 150,
-        borderRadius: 75,
-        marginTop: 100
+    header:{
+        width: '100%',
+        height:'25%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#eee',
+        borderRadius: 20,
+        borderWidth: 3,
+        marginTop: 10,
+        marginBottom: 25
     },
-    nickname:{
-        marginTop: 20,
-        fontSize: 25
+    box:{
+        width: '50%',
+        height: '50%',
+        padding: 5,
     },
-    buttomText:{
-        fontSize:20,
-        color: '#FFF'
+    inner:{
+        flex: 1,
+        backgroundColor: '#eee',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 20,
+        borderWidth: 3
     }
 })
 

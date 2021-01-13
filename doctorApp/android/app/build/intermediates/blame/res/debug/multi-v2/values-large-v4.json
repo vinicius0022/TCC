@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\silas\\CursoReact\\TCC\\doctorApp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
+            "outputFile": "C:\\Users\\vinic\\Documents\\TCC\\doctorApp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-large-v4\\values-large-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\silas\\.gradle\\caches\\transforms-2\\files-2.1\\b5d29781b16f6e6bfbf119253b273514\\material-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\vinic\\.gradle\\caches\\transforms-2\\files-2.1\\b5d29781b16f6e6bfbf119253b273514\\material-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\silas\\.gradle\\caches\\transforms-2\\files-2.1\\fc95f0e032225dc2c7c22afbfdb31fa4\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
+                    "source": "C:\\Users\\vinic\\.gradle\\caches\\transforms-2\\files-2.1\\fc95f0e032225dc2c7c22afbfdb31fa4\\appcompat-1.1.0\\res\\values-large-v4\\values-large-v4.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10",
                         "startColumns": "4,4,4,4,4,4,4,4,4",
