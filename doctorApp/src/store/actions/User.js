@@ -132,3 +132,53 @@ export const login = user => {
             })
     }
 }
+
+//redefinição de senha
+export const forgot = user => {
+
+   
+    const dados = {
+        email: user.email,
+        requestType : "PASSWORD_RESET"
+    }
+
+    const config = {
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }
+
+    return dispatch => {
+
+
+        //dispatch(loadingUser())
+        axios.post(`${authBaseURL}/accounts:sendOobCode?key=${API_KEY}`, dados, config).catch(err => {
+            dispatch(setMessage({
+                title: 'Erro',
+                text: `Não foi possivel redefinir a senha, tente novamente mais tarde! ${err}`
+            }))
+        }).then(res => {
+
+            dispatch(setMessage({
+                title: 'Redefinição de senha',
+                text: `Verifique a caixa de entrada do email ${user.email} para realizar a redefinição da senha.`
+            }))
+               /*  if (res.data.localId) {
+                    user.token = res.data.idToken
+                    axios.get(`/users/${res.data.localId}.json`)
+                        .catch(err => {
+                            dispatch(setMessage({
+                                title: 'Erro',
+                                text: 'Não foi possivel fazer o login, tente novamente mais tarde erro 2'
+                            }))
+                        })
+                        .then(res => {
+                            delete user.senha
+                            user.nome = res.data.nome
+                            dispatch(userLogged(user))
+                            dispatch(userLoaded())
+                        })
+                }*/
+            })
+    }
+}

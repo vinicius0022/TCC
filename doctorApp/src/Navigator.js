@@ -11,10 +11,12 @@ import Channels from './screens/Channels';
 import Feedback from './screens/Feedback';
 import Settings from './screens/Settings';
 import Timeline from './screens/Timeline';
+import Forgot from './screens/Forgot';
 
 const authRouter = createStackNavigator({
     Login: {screen: Login, navigationOptions: {title: 'Login'}},
-    SignUp:{screen: SignUp, navigationOptions: {title: 'Cadastro'}}
+    SignUp:{screen: SignUp, navigationOptions: {title: 'Cadastro'}},
+    Forgot:{screen: Forgot, navigationOptions: {title: 'Redefinição de Senha'}}
   }, {
     initialRouteName: 'Login'
   })

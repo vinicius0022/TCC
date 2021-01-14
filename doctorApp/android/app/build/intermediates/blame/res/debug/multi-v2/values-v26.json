@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\silas\\CursoReact\\TCC\\doctorApp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
+            "outputFile": "C:\\Users\\silas\\TCC\\doctorApp\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v26\\values-v26.xml",
             "map": [
                 {
                     "source": "C:\\Users\\silas\\.gradle\\caches\\transforms-2\\files-2.1\\fc95f0e032225dc2c7c22afbfdb31fa4\\appcompat-1.1.0\\res\\values-v26\\values-v26.xml",

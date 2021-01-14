@@ -100,7 +100,7 @@ class Login extends Component {
 
               <View style={styles.button2Filler}></View>
               <TouchableOpacity
-                onPress={() => {this.props.navigation.navigate('SignUp')}}>
+                onPress={() => {this.props.navigation.navigate('Forgot')}}>
               <Text style={styles.needHelp}>Esqueceu a senha?</Text>
               </TouchableOpacity>
             </View>
