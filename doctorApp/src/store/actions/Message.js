@@ -1,3 +1,5 @@
+//Action - Para Mensagens de erros
+
 import {SET_MESSAGE} from './ActionTypes'
 
 export const setMessage = message =>{

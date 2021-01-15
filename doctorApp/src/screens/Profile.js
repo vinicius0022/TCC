@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
 import { logout } from '../store/actions/User'
-import { StyleSheet, Text, View} from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native'
+
 
 class Profile extends Component {
     
@@ -19,9 +20,9 @@ class Profile extends Component {
                     <Text>Header</Text>
                 </View>
                 <View style={styles.box}>
-                    <View style={styles.inner}>
+                    <TouchableOpacity onPress={() => {this.props.navigation.navigate('RegistrarPaciente')}} style={styles.inner}>
                         <Text>Inserir novo paciente</Text>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.box}>
                     <View style={styles.inner}>
@@ -33,11 +34,12 @@ class Profile extends Component {
                         <Text>Meu perfil</Text>
                     </View>
                 </View>
-                <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text>Sair</Text>
+                    <View style={styles.box}>
+                        <TouchableOpacity onPress={this.logout}
+                        style={styles.inner}>
+                            <Text>Sair</Text>
+                        </TouchableOpacity>
                     </View>
-                </View>
             </View>
         )
     }

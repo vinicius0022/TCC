@@ -1,72 +1,106 @@
-import React, { useState } from 'react'
-import { View, TextInput, Button, ScrollView, StyleSheet } from 'react-native'
+import React, { useState, Component } from 'react'
+import { View, TextInput, Button, Dimensions, ScrollView, StyleSheet, SafeAreaView, TouchableOpacity, Text} from 'react-native'
+import { connect } from 'react-redux'
+import {addPatient} from '../store/actions/Patient'
 
-const registrarPaciente = () => {
+class RegistrarPaciente extends Component {
 
-    const [state, setState] = useState({
+
+    //componente de ciclo de vida da aplicação
+  //a aplicação foi atualizada
+  componentDidUpdate = prevProps => {
+
+    if (prevProps.isLoading && !this.props.isLoading) {
+        this.setState({
+            nome: '',
+            sobrenome: '',
+            cpf: '',
+            telefone: '',
+            email: '',
+        })
+        this.props.navigation.navigate('Profile')
+    }
+  }
+
+    state = {
         nome: '',
         sobrenome: '',
         cpf: '',
         telefone: '',
         email: '',
-    });
-    
-    const mudancaTexto = (name, value) => {
-        setState({ ...state, [name]: value })
     }
 
-    const salvarNovoUsuario = async () => {
-        if(state.nome === '') {
+    render(){
+
+        
+    
+   /*  mudancaTexto = value => {
+        this.setState({nome: value})
+    } */
+
+    /* salvarNovoUsuario = async () => {
+        if(this.state.nome === '') {
             alert('Por gentileza, informe o primeiro nome do paciente')
         } 
-        else if(state.sobrenome === ''){
+        else if(this.state.sobrenome === ''){
             alert('Por gentileza, informe o sobrenome do paciente')
         }
-        else if(state.cpf === ''){
+        else if(this.state.cpf === ''){
             alert('Por gentileza, informe o CPF do paciente')
         } 
-        else if(state.telefone === ''){
+        else if(this.state.telefone === ''){
             alert('Por gentileza, informe o telefone do paciente')
         } 
-        else if(state.email === ''){
+        else if(this.state.email === ''){
             alert('Por gentileza, informe o E-mail do paciente')
         } else {
             
             alert('Paciente cadastrado com sucesso')
-        }
+        } 
+    }*/
+
+        return(
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scroll} >
+                    <View style={styles.input}>
+                        <TextInput placeholder="Primeiro Nome" value={this.state.nome} onChangeText={nome => this.setState({nome})} />
+                    </View>
+
+                    <View style={styles.input}>
+                        <TextInput placeholder="Sobrenome" value={this.state.sobrenome} onChangeText={sobrenome => this.setState({sobrenome})} />
+                    </View>
+
+                    <View style={styles.input}>
+                        <TextInput placeholder="CPF" value={this.state.cpf} onChangeText={cpf => this.setState({cpf})} />
+                    </View>
+
+                    <View style={styles.input}>
+                        <TextInput placeholder="Telefone" value={this.state.telefone} onChangeText={telefone => this.setState({telefone})} />
+                    </View>
+
+                    <View style={styles.input}>
+                        <TextInput placeholder="E-mail" value={this.state.email} onChangeText={email => this.setState({email})} />
+                    </View>
+
+                    <View style={styles.buttonColumn}>
+                    <TouchableOpacity
+                        onPress={() => { this.props.onCreatePatient(this.state) }}
+                        style={styles.button}>
+                    <Text style={styles.text2}>Cadastrar</Text>
+                    </TouchableOpacity>
+                    </View>
+
+                </ScrollView>
+            </SafeAreaView>
+            )
     }
-
-    return(
-        <ScrollView style={styles.container}>
-            <View style={styles.input}>
-                <TextInput placeholder="Primeiro Nome" onChangeText={(value) => mudancaTexto('nome', value)} />
-            </View>
-
-            <View style={styles.input}>
-                <TextInput placeholder="Sobrenome" onChangeText={(value) => mudancaTexto('sobrenome', value)} />
-            </View>
-
-            <View style={styles.input}>
-                <TextInput placeholder="CPF" onChangeText={(value) => mudancaTexto('cpf', value)} />
-            </View>
-
-            <View style={styles.input}>
-                <TextInput placeholder="Telefone" onChangeText={(value) => mudancaTexto('telefone', value)} />
-            </View>
-
-            <View style={styles.input}>
-                <TextInput placeholder="E-mail" onChangeText={(value) => mudancaTexto('email', value)} />
-            </View>
-
-            <View style={styles.input}>
-                <Button title="Cadastrar Paciente" onPress={() => salvarNovoUsuario()} />
-            </View>
-        </ScrollView>
-    )
 }
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
+    },
+    scroll: {
         flex: 1,
         padding: 25
     },
@@ -76,7 +110,38 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         borderBottomWidth: 2,
         borderBottomColor: '#cccc'
-    }
+    },
+    button: {
+        flex: 1,
+      },
+      buttonColumn:{
+        width: Dimensions.get('window').width,
+        height: 50,
+        alignItems: "center",
+        textAlign: "center",
+        paddingVertical: 15,
+        backgroundColor: '#cccc'
+      },
+      text2: {
+        fontWeight: "bold",
+        fontSize: 18,
+      },
 })
 
-export default registrarPaciente
+const mapStateToProps = ({ patient }) => {
+
+    return {
+      isLoading: patient.isLoading
+    }
+  }
+  
+  
+  const mapDispatchToProps = dispatch => {
+  
+    return {
+  
+      onCreatePatient: patient => dispatch(addPatient(patient))
+    }
+  }
+  
+  export default connect(mapStateToProps, mapDispatchToProps)(RegistrarPaciente)

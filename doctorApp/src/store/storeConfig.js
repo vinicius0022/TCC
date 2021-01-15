@@ -1,13 +1,13 @@
 import {createStore, combineReducers, compose, applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
 import userReducer from './reducers/User'
-import postReducer from './reducers/Posts'
+import patientReducer from './reducers/Patient'
 import menssageReducer from './reducers/Message'
 
 const reducers = combineReducers({
 
     user: userReducer,
-    posts: postReducer,
+    patient: patientReducer,
     message: menssageReducer
 })
 

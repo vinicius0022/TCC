@@ -252,6 +252,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
+    
   },
   text2: {
     fontWeight: "bold",
