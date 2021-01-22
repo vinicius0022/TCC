@@ -109,7 +109,7 @@ export const login = user => {
         axios.post(`${authBaseURL}/accounts:signInWithPassword?key=${API_KEY}`, dados, config).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
-                text: `Não foi possivel fazer o login, tente novamente mais tarde! ${user.senha}`
+                text: `Não foi possivel fazer o login, tente novamente mais tarde! ${user.senha}`   
             }))
         }).then(res => {
 

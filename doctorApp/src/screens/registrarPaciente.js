@@ -32,33 +32,6 @@ class RegistrarPaciente extends Component {
 
     render(){
 
-        
-    
-   /*  mudancaTexto = value => {
-        this.setState({nome: value})
-    } */
-
-    /* salvarNovoUsuario = async () => {
-        if(this.state.nome === '') {
-            alert('Por gentileza, informe o primeiro nome do paciente')
-        } 
-        else if(this.state.sobrenome === ''){
-            alert('Por gentileza, informe o sobrenome do paciente')
-        }
-        else if(this.state.cpf === ''){
-            alert('Por gentileza, informe o CPF do paciente')
-        } 
-        else if(this.state.telefone === ''){
-            alert('Por gentileza, informe o telefone do paciente')
-        } 
-        else if(this.state.email === ''){
-            alert('Por gentileza, informe o E-mail do paciente')
-        } else {
-            
-            alert('Paciente cadastrado com sucesso')
-        } 
-    }*/
-
         return(
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scroll} >

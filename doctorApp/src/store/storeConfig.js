@@ -4,6 +4,8 @@ import userReducer from './reducers/User'
 import patientReducer from './reducers/Patient'
 import menssageReducer from './reducers/Message'
 
+
+//Estado global da aplicação
 const reducers = combineReducers({
 
     user: userReducer,
