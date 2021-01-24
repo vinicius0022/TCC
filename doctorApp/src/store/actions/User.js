@@ -39,7 +39,7 @@ export const createUser = user => {
         axios.post(`${authBaseURL}/accounts:signUp?key=${API_KEY}`, dados, config).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
-                text: `Não foi possivel fazer o cadastro erro ${err} ${user.email}`
+                text: `Não foi possivel fazer o cadastro ${err}`
             }))
         })
             .then(res => {
@@ -48,6 +48,7 @@ export const createUser = user => {
                     axios.put(`/users/${res.data.localId}.json`, {
 
                         id: res.data.localId,
+                        email: res.data.email,
                         nome: user.nome,
                         sobrenome: user.sobrenome,
                         cpf: user.cpf,
@@ -60,14 +61,20 @@ export const createUser = user => {
                     }).catch(err => {
                         dispatch(setMessage({
                             title: 'Erro',
-                            text: 'Não foi possivel fazer o cadastro erro 2'
+                            text: 'Não foi possivel fazer o cadastro, tente novamente mais tarde!'
                         }))
                     })
                         .then(() => {
                             dispatch(login(user))
 
                         })
+                } else{
+                    dispatch(setMessage({
+                        title: 'Erro',
+                        text: 'Não foi possivel fazer o login, tente novamente mais tarde!'
+                    }))
                 }
+                
             })
     }
 }
@@ -109,7 +116,7 @@ export const login = user => {
         axios.post(`${authBaseURL}/accounts:signInWithPassword?key=${API_KEY}`, dados, config).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
-                text: `Não foi possivel fazer o login, tente novamente mais tarde! ${user.senha}`   
+                text: `Não foi possivel fazer o login, e-mail e senha inválidos!`   
             }))
         }).then(res => {
 
@@ -119,7 +126,7 @@ export const login = user => {
                         .catch(err => {
                             dispatch(setMessage({
                                 title: 'Erro',
-                                text: 'Não foi possivel fazer o login, tente novamente mais tarde erro 2'
+                                text: 'Não foi possivel fazer o login, tente novamente mais tarde!'
                             }))
                         })
                         .then(res => {
@@ -128,6 +135,11 @@ export const login = user => {
                             dispatch(userLogged(user))
                             dispatch(userLoaded())
                         })
+                }else{
+                    dispatch(setMessage({
+                        title: 'Erro',
+                        text: 'Não foi possivel fazer o login, tente novamente mais tarde!'
+                    }))
                 }
             })
     }

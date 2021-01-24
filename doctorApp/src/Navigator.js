@@ -4,7 +4,6 @@ import Login from './screens/Login'
 import Profile from './screens/Profile'
 import Splash from './screens/Splash'
 import SignUp from './screens/SignUp';
-import Settings from './screens/Settings';
 import Forgot from './screens/Forgot';
 import RegistrarPaciente from './screens/RegistrarPaciente';
 

@@ -192,14 +192,13 @@ class SignUp extends Component {
 
 
               </View>
-              <View style={styles.buttonColumn}>
+              <View style={styles.emailColumnFiller}></View>
                 <TouchableOpacity
                   onPress={() => { this.props.onCreateUser(this.state) }}
                   style={styles.button}
                 >
                   <Text style={styles.text2}>Cadastrar</Text>
                 </TouchableOpacity>
-              </View>
               <Text style={styles.text4}>Termos &amp; Condições</Text>
             </ScrollView>
 
@@ -251,10 +250,17 @@ const styles = StyleSheet.create({
     marginTop: 20
   },
   button: {
-    flex: 1,
+    width: 150,
+    height: 59,
+    backgroundColor: "rgba(31,178,204,1)",
+    borderRadius: 5,
+    justifyContent: "center",
+    alignItems: 'center',
+    alignSelf: 'center'
     
   },
   text2: {
+    color: "rgba(255,255,255,255)",
     fontWeight: "bold",
     fontSize: 18
   },

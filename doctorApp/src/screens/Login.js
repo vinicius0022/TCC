@@ -7,8 +7,11 @@ import {
   ImageBackground,
   Text,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  Dimensions,
+  SafeAreaView
 } from "react-native";
+import { FlatList, ScrollView } from "react-native-gesture-handler";
 import {connect} from 'react-redux'
 
 import { login } from '../store/actions/User'
@@ -16,13 +19,7 @@ import { login } from '../store/actions/User'
 
 class Login extends Component {
 
-  componentDidUpdate = prevProps => { 
-
-    if(prevProps.isLoading && !this.props.isLoading){
-
-        this.props.navigation.navigate('Profile')
-    }
-}
+ 
 
   state = {
     nome: '',
@@ -37,48 +34,46 @@ class Login extends Component {
 
   render() {
     return (
-      <View style={styles.root}>
-        <StatusBar barStyle="light-content" backgroundColor="rgba(0,0,0,0)" />
-        <View style={styles.background}>
+          <SafeAreaView style={styles.container}>
          <ImageBackground
             style={styles.rect}
             imageStyle={styles.rect_imageStyle}
             source={require("../../assets/images/Gradient_BlSPiJo.png")}
           >
-            <View style={styles.logoColumn}>
+            <ScrollView style={styles.logoColumn}>
+
               <View style={styles.logo}>
                 
               <Image style={styles.logo} source={require("../../assets/images/icon.png")}/>
-              <View style={styles.endWrapperFiller}></View>
+              <View style={styles.flexFiller}></View>
                 <View style={styles.text3Column}>
                   <Text style={styles.text3}>Doctor App</Text>
                   <View style={styles.rect7}></View>
                 </View>
               </View>
               <View style={styles.form}>
-                <View style={styles.emailColumn}>
-                  <View style={styles.email}>
+                  <View style={styles.input}>
                     <TextInput
                     keyboardType="email-address"
                       placeholder='E-mail'
                       placeholderTextColor="rgba(255,255,255,1)"
                       secureTextEntry={false}
-                      style={styles.emailInput}
+                      style={styles.textInput}
                       value={this.state.email}
                       onChangeText={email => this.setState({email})} 
                     ></TextInput>
                   </View>
-                  <View style={styles.password}>
+                  <View style={styles.input}>
                     <TextInput
                       placeholder="Senha"
                       placeholderTextColor="rgba(255,255,255,1)"
                       onChangeText={senha => this.setState({senha})} 
                       secureTextEntry={true}
-                      style={styles.passwordInput}
+                      style={styles.textInput}
                     ></TextInput>
                   </View>
-                </View>
-                <View style={styles.emailColumnFiller}></View>
+                
+                <View style={styles.flexColumnFiller}></View>
                 <TouchableOpacity
                   onPress={this.login}
                   style={styles.button}
@@ -86,13 +81,15 @@ class Login extends Component {
                   <Text style={styles.text2}>Acessar</Text>
                 </TouchableOpacity>
               </View>
-            </View>
-            <View style={styles.logoColumnFiller}></View>
+            </ScrollView>
+
+            <View style={styles.flexColumnFiller}></View>
             <View style={styles.footerTexts}>
+            
               <TouchableOpacity
                 onPress={() => {this.props.navigation.navigate('SignUp')}}
                 style={styles.button2}
-              >
+                >
                 <View style={styles.createAccountFiller}></View>
                 <Text style={styles.createAccount}>Criar conta</Text>
   
@@ -100,40 +97,44 @@ class Login extends Component {
 
               <View style={styles.button2Filler}></View>
               <TouchableOpacity
-                onPress={() => {this.props.navigation.navigate('Forgot')}}>
-              <Text style={styles.needHelp}>Esqueceu a senha?</Text>
+                onPress={() => {this.props.navigation.navigate('Forgot')}}
+                style={styles.button2}
+                >
+                <View style={styles.createAccountFiller}></View>
+                <Text style={styles.createAccount}>Esqueceu a senha</Text>
+  
               </TouchableOpacity>
             </View>
   
           </ImageBackground>
-        </View>
-      </View>
+        </SafeAreaView>
     );
   }
+  componentDidUpdate = prevProps => { 
+
+    if(prevProps.isLoading && !this.props.isLoading){
+
+        this.props.navigation.navigate('Profile')
+    }
+}
 
 }
 
+
+
 const styles = StyleSheet.create({
 
-
-  root: {
+  container: {
     flex: 1,
-    backgroundColor: "rgb(255,255,255)"
-  },
-  background: {
-    flex: 1
   },
   rect: {
+    marginTop: 5,
     flex: 1
   },
-  rect_imageStyle: {},
   logo: {
-    width: 135,
-    height: 135,
+    width: Dimensions.get('window').width / 3,
+    height: Dimensions.get('window').width / 4,
     alignSelf: "center"
-  },
-  endWrapperFiller: {
-    flex: 1
   },
   text3: {
     color: "rgba(255,255,255,1)",
@@ -154,20 +155,7 @@ const styles = StyleSheet.create({
     height: 250,
     marginTop: 59
   },
-  email: {
-    height: 59,
-    backgroundColor: "rgba(251,247,247,0.25)",
-    borderRadius: 5,
-    flexDirection: "row"
-  },
-  icon22: {
-    color: "rgba(255,255,255,1)",
-    fontSize: 30,
-    lineHeight: 30,
-    marginLeft: 20,
-    alignSelf: "center"
-  },
-  emailInput: {
+  textInput: {
     height: 35,
     color: "rgba(255,255,255,1)",
     flex: 1,
@@ -175,30 +163,12 @@ const styles = StyleSheet.create({
     marginLeft: 11,
     marginTop: 14
   },
-  password: {
+  input: {
     height: 59,
     backgroundColor: "rgba(253,251,251,0.25)",
     borderRadius: 5,
     flexDirection: "row",
     marginTop: 27
-  },
-  icon2: {
-    color: "rgba(255,255,255,1)",
-    fontSize: 33,
-    marginLeft: 20,
-    alignSelf: "center"
-  },
-  passwordInput: {
-    height: 35,
-    color: "rgba(255,255,255,1)",
-    flex: 1,
-    marginRight: 17,
-    marginLeft: 8,
-    marginTop: 14
-  },
-  emailColumn: {},
-  emailColumnFiller: {
-    flex: 1
   },
   button: {
     height: 59,
@@ -211,27 +181,23 @@ const styles = StyleSheet.create({
     alignSelf: "center"
   },
   logoColumn: {
-    marginTop: 130,
+    marginTop: 100,
     marginLeft: 41,
     marginRight: 41
   },
-  logoColumnFiller: {
+  flexColumnFiller: {
     flex: 1
   },
   footerTexts: {
     height: 14,
     flexDirection: "row",
-    marginBottom: 36,
-    marginLeft: 37,
-    marginRight: 36
+    marginBottom: 50,
+    marginLeft: 50,
+    marginRight: 50,
   },
   button2: {
-    width: 104,
-    height: 14,
-    alignSelf: "center",
-  },
-  button3: {
-    width: 104,
+    color: "rgba(255,255,255,0.5)",
+    width: 200,
     height: 14,
     alignSelf: "center",
   },
