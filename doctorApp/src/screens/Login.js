@@ -13,6 +13,7 @@ import {
 } from "react-native";
 import { FlatList, ScrollView } from "react-native-gesture-handler";
 import {connect} from 'react-redux'
+import LogoHeader from "../components/LogoHeader";
 
 import { login } from '../store/actions/User'
 
@@ -40,17 +41,9 @@ class Login extends Component {
             imageStyle={styles.rect_imageStyle}
             source={require("../../assets/images/Gradient_BlSPiJo.png")}
           >
-            <ScrollView style={styles.logoColumn}>
+            <ScrollView style={styles.ContainerColumn}>
 
-              <View style={styles.logo}>
-                
-              <Image style={styles.logo} source={require("../../assets/images/icon.png")}/>
-              <View style={styles.flexFiller}></View>
-                <View style={styles.text3Column}>
-                  <Text style={styles.text3}>Doctor App</Text>
-                  <View style={styles.rect7}></View>
-                </View>
-              </View>
+            <LogoHeader/>
               <View style={styles.form}>
                   <View style={styles.input}>
                     <TextInput
@@ -132,13 +125,17 @@ const styles = StyleSheet.create({
     flex: 1
   },
   logo: {
-    width: Dimensions.get('window').width / 3,
+    width: Dimensions.get('window').width / 4,
     height: Dimensions.get('window').width / 4,
     alignSelf: "center"
   },
   text3: {
-    color: "rgba(255,255,255,1)",
+    color: "rgba(255,255,255,255)",
     fontSize: 25,
+    marginBottom: 4
+  }, text3: {
+    color: "rgba(255,255,255,255)",
+    fontSize: 20,
     marginBottom: 4
   },
   rect7: {
@@ -180,8 +177,8 @@ const styles = StyleSheet.create({
     color: "rgba(255,255,255,1)",
     alignSelf: "center"
   },
-  logoColumn: {
-    marginTop: 100,
+  ContainerColumn: {
+    marginTop: 10,
     marginLeft: 41,
     marginRight: 41
   },

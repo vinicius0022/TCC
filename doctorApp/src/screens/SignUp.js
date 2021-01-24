@@ -58,7 +58,6 @@ class SignUp extends Component {
         <View style={styles.background}>
           <ImageBackground
             style={styles.rect2}
-            imageStyle={styles.rect2_imageStyle}
             source={require("../../assets/images/Gradient_AKqpKgP.png")}
           >
             <ScrollView style={styles.form}>

@@ -1,7 +1,15 @@
-import { SET_PATIENT, CREATING_PATIENT, PATIENT_CREATED } from '../actions/ActionTypes'
+import { SET_PATIENT, CREATING_PATIENT, PATIENT_CREATED, GET_PATIENT } from '../actions/ActionTypes'
 
 const initialState = {
-    patient: [],
+    patient:
+        [{  
+            id: Math.random(),
+            cpf: '490023578',
+            nome: 'Silas',
+            sobrenome: 'teste',
+            email: 'silas@teste.com',
+            telefone: '1555181518',
+        }],
     isLoading: false,
 }
 
@@ -13,6 +21,12 @@ const reducer = (state = initialState, action) => {
         return{
            ...state,
            patient: action.payload         
+         }
+
+         case GET_PATIENT:
+         return {
+             ...state,
+             patient: action.payload
          }
 
         case CREATING_PATIENT:

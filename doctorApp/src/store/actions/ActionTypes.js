@@ -21,5 +21,7 @@ export const CREATING_PATIENT = 'CREATING_PATIENT'
 //Action que inicia o processo de criação de um paciente no banco de dados
 export const SET_PATIENT = 'SET_PATIENT'
 
+export const GET_PATIENT = 'GET_PATIENT'
+
 //Action que informa que o paciente foi criado
 export const PATIENT_CREATED = 'PATIENT_CREATED'

@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text } from "react-native";
-import { Center } from "@builderx/utils";
+import { StyleSheet, View, Text, Dimensions, Image } from "react-native";
 
 class LogoHeader extends Component {
-  
-  render(){
+
+  render() {
 
     return (
-      <View style={[styles.root, props.style]}>
-        <View style={styles.text5Stack}>
-          <Center horizontal>
-            <Text style={styles.text5}>bx</Text>
-          </Center>
-          <View style={styles.rect8}></View>
+      <View style={styles.header}>
+        <Image style={styles.logo} source={require("../../assets/images/icon.png")} />
+        <View style={styles.flexFiller}></View>
+        <View style={styles.text3Column}>
+          <Text style={styles.text3}>Doctor App</Text>
+          <View style={styles.rect7}></View>
         </View>
       </View>
     );
@@ -20,25 +19,22 @@ class LogoHeader extends Component {
 }
 
 const styles = StyleSheet.create({
-  root: {},
-  text5: {
-    top: 0,
-    color: "rgba(255,255,255,1)",
-    position: "absolute",
-    fontSize: 36
+  header:{
+    width: '100%',
+    height:'25%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: 10,
   },
-  rect8: {
-    top: 38,
-    left: 0,
-    backgroundColor: "rgba(5,5,5,1)",
-    position: "absolute",
-    right: 0,
-    bottom: 5
+  logo: {
+    width: Dimensions.get('window').width / 4,
+    height: Dimensions.get('window').width / 4,
+    alignSelf: "center"
   },
-  text5Stack: {
-    flex: 1,
-    marginBottom: -4
-  }
+  text3: {
+    color: "rgba(255,255,255,255)",
+    fontSize: 20,
+  },
 });
 
 export default LogoHeader;
