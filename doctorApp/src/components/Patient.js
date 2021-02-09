@@ -1,18 +1,27 @@
 import React, { Component } from 'react'
-import { StyleSheet, View, Text } from 'react-native'
+import { StyleSheet, View, Text, Dimensions } from 'react-native'
 
-import { connect } from 'react-redux'
 
 class Patient extends Component {
 
 
-    render() {
-        return (
+    render (){
+
+        let view = null
+        if(this.props.patients){
+            view = this.props.patients.map((item, index) => {
+                return (
+                    <View  style={styles.row} key={index}>
+                        <Text style={styles.item}>{item.id}</Text>
+                        <Text style={styles.item}>{item.nome}</Text>
+                        <Text style={styles.item}>{item.email}</Text>
+                        </View>
+                )
+            })
+        }
+        return(
             <View style={styles.container}>
-                <View style={styles.patientContainer}>
-                    <Text style={styles.nome}>ID: {this.props.nome}</Text>
-                    <Text style={styles.email}>Nome: {this.props.email}</Text>
-                </View>
+                {view}
             </View>
         )
     }
@@ -21,30 +30,20 @@ class Patient extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        margin: 10
     },
-    patientContainer: {
-        flexDirection: 'row',
-        marginTop: 5
+    row:{
+        flex: 10,
+        flexDirection:'row',
+        justifyContent:'space-around',
+        width: Dimensions.get('window').width,
     },
-    nome: {
-        marginLeft: 5,
-        fontWeight: 'bold',
-        color: '#444'
-    },
-    email: {
-        color: '#555'
+    item: {
+        flex: 5,
+     
+
     }
 })
 
 
-const mapStateToProps = ({ patient }) => {
 
-    return {
-        nome: patient.nome,
-        email: patient.email
-
-    }
-}
-
-export default connect(mapStateToProps)(Patient)
+export default (Patient)

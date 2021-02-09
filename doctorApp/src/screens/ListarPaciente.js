@@ -10,12 +10,7 @@ class ListarPaciente extends Component {
 
         return(
             <View style={styles.container}>
-              <FlatList 
-                    data={this.props.patient}
-                    keyExtractor={item => `${item.id}`}
-                    renderItem={({item}) => 
-                    <Patient key={item.id} {...item}/>}
-                />
+            <Patient patients={this.props.patient}/>
             </View>
             )
     }

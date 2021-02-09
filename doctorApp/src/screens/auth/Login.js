@@ -11,11 +11,11 @@ import {
   Dimensions,
   SafeAreaView
 } from "react-native";
-import { FlatList, ScrollView } from "react-native-gesture-handler";
+import { ScrollView } from "react-native-gesture-handler";
 import {connect} from 'react-redux'
-import LogoHeader from "../components/LogoHeader";
+import LogoHeader from "../../components/LogoHeader";
 
-import { login } from '../store/actions/User'
+import { login } from '../../store/actions/User'
 
 
 class Login extends Component {
@@ -29,7 +29,7 @@ class Login extends Component {
   }
 
   
-  login = () => {
+  login = () =>{
     this.props.onLogin({...this.state})
   }
 
@@ -39,7 +39,7 @@ class Login extends Component {
          <ImageBackground
             style={styles.rect}
             imageStyle={styles.rect_imageStyle}
-            source={require("../../assets/images/Gradient_BlSPiJo.png")}
+            source={require("../../../assets/images/Gradient_BlSPiJo.png")}
           >
             <ScrollView style={styles.ContainerColumn}>
 
@@ -67,14 +67,16 @@ class Login extends Component {
                   </View>
                 
                 <View style={styles.flexColumnFiller}></View>
+                </View>
+
+                </ScrollView>
+
                 <TouchableOpacity
                   onPress={this.login}
                   style={styles.button}
                 >
                   <Text style={styles.text2}>Acessar</Text>
                 </TouchableOpacity>
-              </View>
-            </ScrollView>
 
             <View style={styles.flexColumnFiller}></View>
             <View style={styles.footerTexts}>
@@ -169,9 +171,12 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 59,
+    width: Dimensions.get('window').width / 4 * 3,
     backgroundColor: "rgba(31,178,204,1)",
     borderRadius: 5,
-    justifyContent: "center"
+    justifyContent: "center",
+    alignItems:"center",
+    alignSelf:"center"
   },
   text2: {
     color: "rgba(255,255,255,1)",

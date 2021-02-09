@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { connect } from 'react-redux'
-import { createUser } from '../store/actions/User'
+import { createUser } from '../../store/actions/User'
 
 
 class SignUp extends Component {
@@ -58,7 +58,7 @@ class SignUp extends Component {
         <View style={styles.background}>
           <ImageBackground
             style={styles.rect2}
-            source={require("../../assets/images/Gradient_AKqpKgP.png")}
+            source={require("../../../assets/images/Gradient_AKqpKgP.png")}
           >
             <ScrollView style={styles.form}>
               <View style={styles.nameColumn}>
@@ -177,18 +177,6 @@ class SignUp extends Component {
                   ></TextInput>
                 </View>
                 <View style={styles.nameColumnFiller}></View>
-
-
-                {/* <View style={styles.password}>
-                  <TextInput
-                    placeholder="Password"
-                    placeholderTextColor="rgba(255,255,255,1)"
-                    secureTextEntry={true}
-                    style={styles.passwordInput}
-                  ></TextInput>
-                </View>
-                <View style={styles.nameColumnFiller}></View> */}
-
 
               </View>
               <View style={styles.emailColumnFiller}></View>

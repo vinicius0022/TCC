@@ -1,4 +1,4 @@
-import { SET_PATIENT, CREATING_PATIENT, PATIENT_CREATED, GET_PATIENT } from '../actions/ActionTypes'
+import { SET_PATIENT, CREATING_PATIENT, PATIENT_CREATED } from '../actions/ActionTypes'
 
 const initialState = {
     patient:
@@ -17,19 +17,14 @@ const reducer = (state = initialState, action) => {
 
     switch(action.type){
 
-        case SET_PATIENT:
+        case SET_PATIENT:{
         return{
-           ...state,
-           patient: action.payload         
+            ...state,
+            patient: state.patient.concat({
+            ...action.payload
+           })   
          }
-
-         case GET_PATIENT:
-         return {
-             ...state,
-             patient: action.payload
-         }
-
-        case CREATING_PATIENT:
+        }case CREATING_PATIENT:
 
         return{
            ...state,

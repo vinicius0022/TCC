@@ -12,6 +12,7 @@ class RegistrarPaciente extends Component {
 
     if (prevProps.isLoading && !this.props.isLoading) {
         this.setState({
+            id:'',
             nome: '',
             sobrenome: '',
             cpf: '',
@@ -23,6 +24,7 @@ class RegistrarPaciente extends Component {
   }
 
     state = {
+        id: '',
         nome: '',
         sobrenome: '',
         cpf: '',
@@ -85,7 +87,7 @@ class RegistrarPaciente extends Component {
                     <TouchableOpacity
                         onPress={() => { this.props.onCreatePatient(this.state) }}
                         style={styles.button}>
-                    <Text style={styles.text2}>Cadastrar</Text>
+                    <Text style={styles.text2}>Registrar</Text>
                     </TouchableOpacity>
                 </ScrollView>
                 </ImageBackground>

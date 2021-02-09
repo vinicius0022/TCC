@@ -58,7 +58,7 @@ export const setPatient = patient => {
             }
         }
 
-        //obtem os dados de forma assincrona atraves de uma requisição ajax utilizando o axios e redux thunk, acessando o firebase
+       /*  //obtem os dados de forma assincrona atraves de uma requisição ajax utilizando o axios e redux thunk, acessando o firebase
         export const getPatient = () => {
 
 
@@ -82,7 +82,7 @@ export const setPatient = patient => {
 
 
             }
-        }
+        } */
 
         export const creatingPatient = () => {
 

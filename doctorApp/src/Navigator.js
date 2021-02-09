@@ -1,10 +1,10 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import Login from './screens/Login'
+import Login from './screens/auth/Login'
+import SignUp from './screens/auth/SignUp';
+import Forgot from './screens/auth/Forgot';
 import Profile from './screens/Profile'
 import Splash from './screens/Splash'
-import SignUp from './screens/SignUp';
-import Forgot from './screens/Forgot';
 import RegistrarPaciente from './screens/RegistrarPaciente';
 import ListarPaciente from './screens/ListarPaciente';
 

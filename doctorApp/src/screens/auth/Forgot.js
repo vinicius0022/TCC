@@ -7,11 +7,13 @@ import {
   ImageBackground,
   Text,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
+  SafeAreaView,
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 import {connect} from 'react-redux'
 
-import { forgot } from '../store/actions/User'
+import { forgot } from '../../store/actions/User'
 
 
 class Forgot extends Component {
@@ -29,18 +31,19 @@ class Forgot extends Component {
 
   render() {
     return (
-      <View style={styles.root}>
+      <SafeAreaView style={styles.root}>
         <StatusBar barStyle="light-content" backgroundColor="rgba(0,0,0,0)" />
         <View style={styles.background}>
          <ImageBackground
             style={styles.rect}
             imageStyle={styles.rect_imageStyle}
-            source={require("../../assets/images/Gradient_BlSPiJo.png")}
-          >
+            source={require("../../../assets/images/Gradient_BlSPiJo.png")}
+            >
+            <ScrollView>
             <View style={styles.logoColumn}>
               <View style={styles.logo}>
                 
-              <Image style={styles.logo} source={require("../../assets/images/icon.png")}/>
+              <Image style={styles.logo} source={require("../../../assets/images/icon.png")}/>
               <View style={styles.endWrapperFiller}></View>
                 <View style={styles.text3Column}>
                   <Text style={styles.text3}>Doctor App</Text>
@@ -65,13 +68,14 @@ class Forgot extends Component {
                   onPress={this.forgot}
                   style={styles.button}
                 >
-                  <Text style={styles.text2}>Acessar</Text>
+                  <Text style={styles.text2}>Enviar</Text>
                 </TouchableOpacity>
               </View>
-            </View>  
+            </View> 
+        </ScrollView>
           </ImageBackground>
         </View>
-      </View>
+      </SafeAreaView>
     );
   }
 
