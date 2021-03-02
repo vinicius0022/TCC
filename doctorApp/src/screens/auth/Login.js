@@ -20,8 +20,6 @@ import { login } from '../../store/actions/User'
 
 class Login extends Component {
 
- 
-
   state = {
     nome: '',
     email: '',

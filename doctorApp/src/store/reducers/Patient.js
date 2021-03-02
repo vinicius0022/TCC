@@ -1,6 +1,6 @@
 import { SET_PATIENT, CREATING_PATIENT, PATIENT_CREATED } from '../actions/ActionTypes'
 
-const initialState = {
+export const initialState = {
     patient:
         [{  
             id: Math.random(),
@@ -13,7 +13,7 @@ const initialState = {
     isLoading: false,
 }
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
 
     switch(action.type){
 
@@ -45,5 +45,3 @@ const reducer = (state = initialState, action) => {
 
 }
 
-
-export default reducer

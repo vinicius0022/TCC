@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render show LogoHeader 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "height": "25%",
+      "justifyContent": "center",
+      "marginTop": 10,
+      "width": "100%",
+    }
+  }
+>
+  <Image
+    source={
+      Object {
+        "testUri": "../../../assets/images/icon.png",
+      }
+    }
+    style={
+      Object {
+        "alignSelf": "center",
+        "height": 187.5,
+        "width": 187.5,
+      }
+    }
+  />
+  <View />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "rgba(255,255,255,255)",
+          "fontSize": 20,
+        }
+      }
+    >
+      Doctor App
+    </Text>
+    <View />
+  </View>
+</View>
+`;

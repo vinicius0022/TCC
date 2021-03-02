@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Splash render 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgb(255,255,255)",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <ImageBackground
+    imageStyle={
+      Object {
+        "resizeMode": "cover",
+      }
+    }
+    source={
+      Object {
+        "testUri": "../../../assets/images/Gradient_BlSPiJo.png",
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+        "width": 750,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "column",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/images/icon.png",
+          }
+        }
+        style={
+          Object {
+            "alignItems": "center",
+            "height": 100,
+            "justifyContent": "center",
+            "resizeMode": "contain",
+            "width": 100,
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "marginBottom": 6,
+            "marginLeft": 2,
+            "marginRight": -1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "rgba(255,255,255,1)",
+              "fontSize": 25,
+              "marginBottom": 4,
+            }
+          }
+        >
+          Doctor App
+        </Text>
+        <View
+          style={
+            Object {
+              "backgroundColor": "white",
+              "height": 8,
+              "marginRight": 4,
+            }
+          }
+        />
+      </View>
+    </View>
+  </ImageBackground>
+</View>
+`;

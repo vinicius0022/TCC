@@ -1,6 +1,6 @@
 import {USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED} from '../actions/ActionTypes'
 
-const initialState = {
+export const initialState = {
     
     nome: null,
     email: null,
@@ -9,7 +9,7 @@ const initialState = {
 }
 
 
-const reducer = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
 
     switch (action.type){
 
@@ -41,6 +41,3 @@ const reducer = (state = initialState, action) => {
             return state
     }   
 }
-
-
-export default reducer

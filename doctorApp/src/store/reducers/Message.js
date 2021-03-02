@@ -1,12 +1,12 @@
 import { SET_MESSAGE} from '../actions/ActionTypes'
 
-const initialState = {
+export const initialState = {
 
     title: '',
     text: ''
 }
 
-const reducer = (state = initialState, action) =>{
+export const reducer = (state = initialState, action) =>{
 
     switch (action.type){
 
@@ -21,6 +21,3 @@ const reducer = (state = initialState, action) =>{
                 return state
     }
 }
-
-
-export default reducer
