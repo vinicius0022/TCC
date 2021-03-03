@@ -25,3 +25,9 @@ export const GET_PATIENT = 'GET_PATIENT'
 
 //Action que informa que o paciente foi criado
 export const PATIENT_CREATED = 'PATIENT_CREATED'
+
+export const THREADS_CREATED = 'THREADS_CREATED'
+
+export const GET_THREADS = 'GET_THREADS'
+
+export const SET_THREADS = 'SET_THREADS'
