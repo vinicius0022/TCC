@@ -31,7 +31,7 @@ class HomeScreen extends Component {
         keyExtractor={(item) => item.id}
         ItemSeparatorComponent={() => <Divider />}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => navigation.navigate('Room', { thread: item })}>
+          <TouchableOpacity onPress={() => this.props.onCreatethread(this.state)}>
             <List.Item
               title={item.name}
               description={item.latestMessage.text}
