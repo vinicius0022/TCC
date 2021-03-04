@@ -9,13 +9,14 @@ MERGED from [com.facebook.flipper:flipper:0.54.0] C:\Users\silas\.gradle\caches\
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.54.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\b0e545b1aadd9b5d296296ec05f6986b\jetified-flipper-network-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\cd96642e8a738868497e87ae978cb2c4\jetified-flipper-fresco-plugin-0.54.0\AndroidManifest.xml:8:1-15:12
 MERGED from [:react-native-community_masked-view] C:\Users\silas\TCC\doctorApp\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
-MERGED from [:react-native-svg] C:\Users\silas\TCC\doctorApp\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
-MERGED from [:react-native-reanimated] C:\Users\silas\TCC\doctorApp\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-gesture-handler] C:\Users\silas\TCC\doctorApp\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:react-native-reanimated] C:\Users\silas\TCC\doctorApp\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
 MERGED from [:react-native-safe-area-context] C:\Users\silas\TCC\doctorApp\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-screens] C:\Users\silas\TCC\doctorApp\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-svg] C:\Users\silas\TCC\doctorApp\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-9:12
 MERGED from [:react-native-vector-icons] C:\Users\silas\TCC\doctorApp\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-34:12
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359848a20282cf8fd4096b1fd65daca6\jetified-react-native-0.63.2\AndroidManifest.xml:2:1-13:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\38a48dbc860fe0f1f1efdce87916ebc2\swiperefreshlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [org.webkit:android-jsc:r245459] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e7ef4c8aec6ae2b12b32f5f7a02ae2f6\jetified-android-jsc-r245459\AndroidManifest.xml:2:1-11:12
@@ -42,12 +43,14 @@ MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\silas\.gradle\ca
 MERGED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c47dbb173c188668dd86c58b731bef2d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:17:1-38:12
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\dbb2d50e260f801b8c6781ea8ef3e810\jetified-play-services-location-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c53457ba6bfc185629bbd8dc9fd30fc7\jetified-play-services-base-17.0.0\AndroidManifest.xml:17:1-29:12
+MERGED from [com.github.bumptech.glide:glide:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\a56711341073e3f4cf40bf358b586b67\jetified-glide-4.7.1\AndroidManifest.xml:2:1-13:12
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f62589ef9a38185c9c42171b3acf7135\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c9aca96b67278e1a082cd99c9ad4d38b\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c3b15ccb8eac0d70d8b2ff86a0efc958\jetified-play-services-basement-17.0.0\AndroidManifest.xml:17:1-28:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\56aa858ad11ae95d4aed960208b866b7\jetified-viewpager2-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fc8b98fa1d0d659a80b708e206647ecc\fragment-1.2.1\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\883988662ca65b19e87972bdc938c4b3\coordinatorlayout-1.1.0\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c0438f846f1be6123874d821f88518e4\media-1.1.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\2f9e448315178fa6b4234b3459b778f4\drawerlayout-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\b230f7c74754aa0b421d83557df1f73b\viewpager-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.loader:loader:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\bcb70fbf4324733193b125d0996304de\loader-1.0.0\AndroidManifest.xml:17:1-22:12
@@ -56,12 +59,15 @@ MERGED from [androidx.recyclerview:recyclerview:1.1.0] C:\Users\silas\.gradle\ca
 MERGED from [androidx.customview:customview:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\337fb054bb21eaede749dd65aaea9fcd\customview-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.transition:transition:1.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f8b4568855b7c59c04edb34298b7d471\transition-1.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\3e0667e4edc721422f45c63ca8d79fdf\vectordrawable-1.1.0\AndroidManifest.xml:17:1-24:12
-MERGED from [androidx.core:core:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fa0935890922c72ba98a60731b9c0aff\core-1.1.0\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.core:core:1.2.0-beta01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\df0981e3f51d959493cc8b433d98d091\core-1.2.0-beta01\AndroidManifest.xml:17:1-26:12
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.10.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e0c620ef0cf34a789825bc4fe4124f1f\jetified-exoplayer-core-2.10.1\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0-alpha01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\4cd3d802f695ca2f74ced4c90e8582da\localbroadcastmanager-1.1.0-alpha01\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\31ebe3e4a9db3052659e49994522284e\cursoradapter-1.0.0\AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359be921d71f06ca653922feb0243c87\versionedparcelable-1.1.0\AndroidManifest.xml:17:1-27:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\b24a3188d07b158823a4ada8948203f4\jetified-lifecycle-viewmodel-savedstate-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e3387cae8fb589c754fda7db0b431141\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\92278e79fe11b74801900a22b1aa39d3\cardview-1.0.0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\aa496b976a8e0d6f8276578532ccac7e\jetified-gifdecoder-4.7.1\AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\97a21c1956146657de6f4f33ac0a7006\lifecycle-runtime-2.2.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\90bed55493d65d4716feb9c2dc9084cb\jetified-savedstate-1.0.0\AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\2c30082cf6e077f1dd74976142419f5c\lifecycle-livedata-2.0.0\AndroidManifest.xml:17:1-22:12
@@ -104,6 +110,8 @@ application
 ADDED from C:\Users\silas\TCC\doctorApp\android\app\src\main\AndroidManifest.xml:6:5-25:19
 MERGED from C:\Users\silas\TCC\doctorApp\android\app\src\main\AndroidManifest.xml:6:5-25:19
 MERGED from C:\Users\silas\TCC\doctorApp\android\app\src\main\AndroidManifest.xml:6:5-25:19
+MERGED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-32:19
+MERGED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:5-32:19
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359848a20282cf8fd4096b1fd65daca6\jetified-react-native-0.63.2\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359848a20282cf8fd4096b1fd65daca6\jetified-react-native-0.63.2\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.soloader:soloader:0.9.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\58eb5792a19838194364070c92f216bf\jetified-soloader-0.9.0\AndroidManifest.xml:11:5-20
@@ -116,20 +124,24 @@ MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\sila
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\dbb2d50e260f801b8c6781ea8ef3e810\jetified-play-services-location-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c53457ba6bfc185629bbd8dc9fd30fc7\jetified-play-services-base-17.0.0\AndroidManifest.xml:22:5-27:19
 MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c53457ba6bfc185629bbd8dc9fd30fc7\jetified-play-services-base-17.0.0\AndroidManifest.xml:22:5-27:19
+MERGED from [com.github.bumptech.glide:glide:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\a56711341073e3f4cf40bf358b586b67\jetified-glide-4.7.1\AndroidManifest.xml:11:5-20
+MERGED from [com.github.bumptech.glide:glide:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\a56711341073e3f4cf40bf358b586b67\jetified-glide-4.7.1\AndroidManifest.xml:11:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f62589ef9a38185c9c42171b3acf7135\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f62589ef9a38185c9c42171b3acf7135\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:7:5-20
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c9aca96b67278e1a082cd99c9ad4d38b\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c9aca96b67278e1a082cd99c9ad4d38b\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c3b15ccb8eac0d70d8b2ff86a0efc958\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
 MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c3b15ccb8eac0d70d8b2ff86a0efc958\jetified-play-services-basement-17.0.0\AndroidManifest.xml:22:5-26:19
-MERGED from [androidx.core:core:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fa0935890922c72ba98a60731b9c0aff\core-1.1.0\AndroidManifest.xml:24:5-89
-MERGED from [androidx.core:core:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fa0935890922c72ba98a60731b9c0aff\core-1.1.0\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.2.0-beta01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\df0981e3f51d959493cc8b433d98d091\core-1.2.0-beta01\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.2.0-beta01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\df0981e3f51d959493cc8b433d98d091\core-1.2.0-beta01\AndroidManifest.xml:24:5-89
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359be921d71f06ca653922feb0243c87\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359be921d71f06ca653922feb0243c87\versionedparcelable-1.1.0\AndroidManifest.xml:24:5-25:19
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\aa496b976a8e0d6f8276578532ccac7e\jetified-gifdecoder-4.7.1\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\aa496b976a8e0d6f8276578532ccac7e\jetified-gifdecoder-4.7.1\AndroidManifest.xml:9:5-20
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\0f31870bd945c86daa82f85c78e42209\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\0f31870bd945c86daa82f85c78e42209\jetified-android-maps-utils-0.5\AndroidManifest.xml:7:5-11:19
 	android:appComponentFactory
-		ADDED from [androidx.core:core:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fa0935890922c72ba98a60731b9c0aff\core-1.1.0\AndroidManifest.xml:24:18-86
+		ADDED from [androidx.core:core:1.2.0-beta01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\df0981e3f51d959493cc8b433d98d091\core-1.2.0-beta01\AndroidManifest.xml:24:18-86
 	android:label
 		ADDED from C:\Users\silas\TCC\doctorApp\android\app\src\main\AndroidManifest.xml:8:7-39
 		ADDED from C:\Users\silas\TCC\doctorApp\android\app\src\main\AndroidManifest.xml:8:7-39
@@ -192,20 +204,22 @@ MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\silas\.
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.54.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\cd96642e8a738868497e87ae978cb2c4\jetified-flipper-fresco-plugin-0.54.0\AndroidManifest.xml:11:5-13:41
 MERGED from [:react-native-community_masked-view] C:\Users\silas\TCC\doctorApp\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-community_masked-view] C:\Users\silas\TCC\doctorApp\node_modules\@react-native-community\masked-view\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-svg] C:\Users\silas\TCC\doctorApp\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-svg] C:\Users\silas\TCC\doctorApp\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
-MERGED from [:react-native-reanimated] C:\Users\silas\TCC\doctorApp\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-reanimated] C:\Users\silas\TCC\doctorApp\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\silas\TCC\doctorApp\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-gesture-handler] C:\Users\silas\TCC\doctorApp\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-reanimated] C:\Users\silas\TCC\doctorApp\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\silas\TCC\doctorApp\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-safe-area-context] C:\Users\silas\TCC\doctorApp\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-safe-area-context] C:\Users\silas\TCC\doctorApp\node_modules\react-native-safe-area-context\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-screens] C:\Users\silas\TCC\doctorApp\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-screens] C:\Users\silas\TCC\doctorApp\node_modules\react-native-screens\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-svg] C:\Users\silas\TCC\doctorApp\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-svg] C:\Users\silas\TCC\doctorApp\node_modules\react-native-svg\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-vector-icons] C:\Users\silas\TCC\doctorApp\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-vector-icons] C:\Users\silas\TCC\doctorApp\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359848a20282cf8fd4096b1fd65daca6\jetified-react-native-0.63.2\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.63.2] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359848a20282cf8fd4096b1fd65daca6\jetified-react-native-0.63.2\AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\38a48dbc860fe0f1f1efdce87916ebc2\swiperefreshlayout-1.0.0\AndroidManifest.xml:20:5-44
@@ -258,6 +272,8 @@ MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\sila
 MERGED from [com.google.android.gms:play-services-location:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\dbb2d50e260f801b8c6781ea8ef3e810\jetified-play-services-location-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c53457ba6bfc185629bbd8dc9fd30fc7\jetified-play-services-base-17.0.0\AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.gms:play-services-base:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c53457ba6bfc185629bbd8dc9fd30fc7\jetified-play-services-base-17.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\a56711341073e3f4cf40bf358b586b67\jetified-glide-4.7.1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:glide:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\a56711341073e3f4cf40bf358b586b67\jetified-glide-4.7.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f62589ef9a38185c9c42171b3acf7135\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f62589ef9a38185c9c42171b3acf7135\jetified-play-services-tasks-17.0.0\AndroidManifest.xml:5:5-44
 MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c9aca96b67278e1a082cd99c9ad4d38b\jetified-play-services-places-placereport-17.0.0\AndroidManifest.xml:20:5-44
@@ -270,6 +286,8 @@ MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\silas\.gradle\caches\tra
 MERGED from [androidx.fragment:fragment:1.2.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fc8b98fa1d0d659a80b708e206647ecc\fragment-1.2.1\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\883988662ca65b19e87972bdc938c4b3\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\883988662ca65b19e87972bdc938c4b3\coordinatorlayout-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c0438f846f1be6123874d821f88518e4\media-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c0438f846f1be6123874d821f88518e4\media-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\2f9e448315178fa6b4234b3459b778f4\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\2f9e448315178fa6b4234b3459b778f4\drawerlayout-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\b230f7c74754aa0b421d83557df1f73b\viewpager-1.0.0\AndroidManifest.xml:20:5-44
@@ -286,8 +304,12 @@ MERGED from [androidx.transition:transition:1.2.0] C:\Users\silas\.gradle\caches
 MERGED from [androidx.transition:transition:1.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\f8b4568855b7c59c04edb34298b7d471\transition-1.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\3e0667e4edc721422f45c63ca8d79fdf\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\3e0667e4edc721422f45c63ca8d79fdf\vectordrawable-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fa0935890922c72ba98a60731b9c0aff\core-1.1.0\AndroidManifest.xml:20:5-22:41
-MERGED from [androidx.core:core:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\fa0935890922c72ba98a60731b9c0aff\core-1.1.0\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.2.0-beta01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\df0981e3f51d959493cc8b433d98d091\core-1.2.0-beta01\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.2.0-beta01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\df0981e3f51d959493cc8b433d98d091\core-1.2.0-beta01\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.10.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e0c620ef0cf34a789825bc4fe4124f1f\jetified-exoplayer-core-2.10.1\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.10.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e0c620ef0cf34a789825bc4fe4124f1f\jetified-exoplayer-core-2.10.1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0-alpha01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\4cd3d802f695ca2f74ced4c90e8582da\localbroadcastmanager-1.1.0-alpha01\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.1.0-alpha01] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\4cd3d802f695ca2f74ced4c90e8582da\localbroadcastmanager-1.1.0-alpha01\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\31ebe3e4a9db3052659e49994522284e\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\31ebe3e4a9db3052659e49994522284e\cursoradapter-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\359be921d71f06ca653922feb0243c87\versionedparcelable-1.1.0\AndroidManifest.xml:20:5-22:41
@@ -298,6 +320,8 @@ MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\silas\.gradl
 MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e3387cae8fb589c754fda7db0b431141\lifecycle-viewmodel-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\92278e79fe11b74801900a22b1aa39d3\cardview-1.0.0\AndroidManifest.xml:20:5-44
 MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\92278e79fe11b74801900a22b1aa39d3\cardview-1.0.0\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\aa496b976a8e0d6f8276578532ccac7e\jetified-gifdecoder-4.7.1\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.7.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\aa496b976a8e0d6f8276578532ccac7e\jetified-gifdecoder-4.7.1\AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\97a21c1956146657de6f4f33ac0a7006\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.lifecycle:lifecycle-runtime:2.2.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\97a21c1956146657de6f4f33ac0a7006\lifecycle-runtime-2.2.0\AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\90bed55493d65d4716feb9c2dc9084cb\jetified-savedstate-1.0.0\AndroidManifest.xml:20:5-22:41
@@ -334,8 +358,36 @@ uses-permission#android.permission.ACCESS_COARSE_LOCATION
 ADDED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
 	android:name
 		ADDED from [:react-native-maps] C:\Users\silas\TCC\doctorApp\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-78
+uses-permission#android.permission.WAKE_LOCK
+ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-68
+	android:name
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:22-65
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:5-77
+	android:name
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:22-74
+service#com.guichaguri.trackplayer.service.MusicService
+ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:9-24:19
+	android:enabled
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:13-35
+	android:exported
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:20:13-36
+	android:name
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:13-75
+intent-filter#action:name:android.intent.action.MEDIA_BUTTON
+ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:21:13-23:29
+action#android.intent.action.MEDIA_BUTTON
+ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:17-77
+	android:name
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:22:25-74
+receiver#androidx.media.session.MediaButtonReceiver
+ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:9-31:20
+	android:name
+		ADDED from [:react-native-track-player] C:\Users\silas\TCC\doctorApp\node_modules\react-native-track-player\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:27:19-76
 uses-permission#android.permission.ACCESS_NETWORK_STATE
 ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c47dbb173c188668dd86c58b731bef2d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.10.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e0c620ef0cf34a789825bc4fe4124f1f\jetified-exoplayer-core-2.10.1\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.exoplayer:exoplayer-core:2.10.1] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\e0c620ef0cf34a789825bc4fe4124f1f\jetified-exoplayer-core-2.10.1\AndroidManifest.xml:24:5-79
 	android:name
 		ADDED from [com.google.android.gms:play-services-maps:17.0.0] C:\Users\silas\.gradle\caches\transforms-2\files-2.1\c47dbb173c188668dd86c58b731bef2d\jetified-play-services-maps-17.0.0\AndroidManifest.xml:23:22-76
 uses-feature#0x00020000

@@ -7,6 +7,7 @@ import Profile from './screens/Profile'
 import Splash from './screens/Splash'
 import RegistrarPaciente from './screens/RegistrarPaciente';
 import ListarPaciente from './screens/ListarPaciente';
+import HomeScreen from './screens/chat/HomeScreen';
 
 const authRouter = createStackNavigator({
   Login: { screen: Login, navigationOptions: { title: 'Login' } },
@@ -19,9 +20,9 @@ const authRouter = createStackNavigator({
 
 const screensCards = createStackNavigator({
   Profile: Profile,
-  RegistrarPaciente: { screen: RegistrarPaciente, navigationOptions: { title: 'Registrar paciente' } },
+  Chat: {screen: HomeScreen, navigationOptions:{title: 'Chat'}},
+  RegistrarPaciente: { screen: RegistrarPaciente, navigationOptions: { title: 'Registrar paciente'} },
   ListarPaciente: { screen: ListarPaciente, navigationOptions: { title: 'Listar Paciente' } }
-
 }, {
   initialRouteName: 'Profile'
 })

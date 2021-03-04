@@ -1,6 +1,7 @@
-#Thu Jan 14 18:29:09 BRT 2021
+#Wed Mar 03 21:46:20 BRT 2021
 path.1=classes.dex
 path.0=classes.dex
+renamed.10=classes11.dex
 renamed.9=classes10.dex
 renamed.8=classes9.dex
 renamed.7=classes8.dex
@@ -21,6 +22,8 @@ base.3=C\:\\Users\\silas\\TCC\\doctorApp\\android\\app\\build\\intermediates\\de
 base.2=C\:\\Users\\silas\\TCC\\doctorApp\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_0.dex
 base.1=C\:\\Users\\silas\\TCC\\doctorApp\\android\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
 base.0=C\:\\Users\\silas\\TCC\\doctorApp\\android\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.10=C\:\\Users\\silas\\TCC\\doctorApp\\android\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\classes_8.dex
+path.10=classes_8.dex
 path.9=classes_7.dex
 path.8=classes_6.dex
 path.7=classes_5.dex

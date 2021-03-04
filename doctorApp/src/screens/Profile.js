@@ -33,9 +33,9 @@ class Profile extends Component {
                 </TouchableOpacity>
                 </View>
                 <View style={styles.box}>
-                    <View style={styles.inner}>
-                        <Text style={styles.text2}>Meu perfil</Text>
-                    </View>
+                <TouchableOpacity onPress={() => {this.props.navigation.navigate('Chat')}} style={styles.inner}>
+                        <Text style={styles.text2}>Chat</Text>
+                </TouchableOpacity>
                 </View>
                     <View style={styles.box}>
                         <TouchableOpacity onPress={this.logout}
