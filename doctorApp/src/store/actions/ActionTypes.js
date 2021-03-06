@@ -30,6 +30,6 @@ export const CREATING_THREAD = 'CREATING_THREAD'
 
 export const THREAD_CREATED = 'THREAD_CREATED'
 
-export const SET_THREAD = 'SET_THREAD'
+export const SET_THREADS = 'SET_THREADS'
 
 export const GET_THREAD = 'GET_THREAD'

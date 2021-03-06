@@ -2,36 +2,26 @@ import React, { Component } from 'react';
 import { View, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 import { List, Divider } from 'react-native-paper';
 import { connect } from 'react-redux'
-import {createThread} from '../../store/actions/Threads'
+import { getThreads } from '../../store/actions/Threads';
+import Loading from '../../components/chat/Loading';
+import Room from '../../components/chat/Room';
 
 class HomeScreen extends Component {
-  
-  state = {
-    threads:[{
-      id: ''+Math.random(),
-      name: 'Teste',
-      latestMessage: {
-        text: 'Teste',
-        createdAt: new Date().getTime()
-      }
 
-    }],
+
+  componentDidMount = () => {
+    this.props.onGetThreads()
   }
 
-  render(){
-
-    // const createthread = () => {
-    //   return this.setState([{name:'teste', latestMessage:{text:'teste', createdAt: new Date().getTime()}}])
-    // }
-    console.log(this.state.threads)
+  render() {
     return (
       <View style={styles.container}>
-      <FlatList
-        data={this.state.threads}
-        keyExtractor={(item) => item.id}
-        ItemSeparatorComponent={() => <Divider />}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => this.props.onCreatethread(this.state)}>
+        <FlatList
+          data={this.props.threads}
+          keyExtractor={(item) => item.id}
+          ItemSeparatorComponent={() => <Divider />}
+          renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('Room', {threads: item})}>
             <List.Item
               title={item.name}
               description={item.latestMessage.text}
@@ -40,11 +30,10 @@ class HomeScreen extends Component {
               descriptionStyle={styles.listDescription}
               descriptionNumberOfLines={1} />
           </TouchableOpacity>
-        )} />
-    </View>
-  );
-}
-
+         )}/>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -60,18 +49,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ thread }) => {
-
+const mapStateToProps = ({ threads }) => {
   return {
-    loading: thread.loading
+    threads: threads.threads,
+    isLoading: threads.isLoading
   }
 }
 
 const mapDispatchToProps = dispatch => {
-
   return {
-
-    onCreatethread: thread => dispatch(createThread(thread))
+    onGetThreads: () => dispatch(getThreads())
   }
 }
 

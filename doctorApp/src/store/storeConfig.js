@@ -12,7 +12,7 @@ const reducers = combineReducers({
     user: UserReducer,
     patient: patientReducer,
     message: menssageReducer,
-    thread: threadReducer
+    threads: threadReducer
 })
 
 

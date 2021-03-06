@@ -132,6 +132,7 @@ export const login = user => {
                         .then(res => {
                             delete user.senha
                             user.nome = res.data.nome
+                            user.id = res.data.id
                             dispatch(userLogged(user))
                             dispatch(userLoaded())
                         })

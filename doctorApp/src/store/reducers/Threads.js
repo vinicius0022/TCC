@@ -1,49 +1,43 @@
-import { THREAD_CREATED, GET_THREAD, SET_THREAD, CREATING_THREAD } from '../actions/ActionTypes'
+import { THREAD_CREATED, GET_THREAD, CREATING_THREAD, SET_THREADS } from '../actions/ActionTypes'
 
 export const initialState = {
-    thread:
-        [{id: 0,
-            latestMessage:{
-                text: '',
-                createdAt: new Date().getTime()
-            }}],
+        threads:[],
+        isCreating: false,
+        isLoading: false
 }
+
 
 export const reducer = (state = initialState, action) => {
 
     switch(action.type){
 
-        case SET_THREAD:
-        return{
-            ...state,
-            thread: state.thread.concat({
-            ...action.payload
-           })   
-         }
+        case SET_THREADS:
+            return{
+                ...state,
+                threads: action.payload,
+                isCreating: false,
+                isLoading: false
+            }
         case CREATING_THREAD:
-
-        return{
-           ...state,
+            return{
+            ...state,
+            isCreating: true,
             isLoading: true
-        }
-
+            }
         case GET_THREAD:
-
             return{
                ...state,
-                isLoading: true
+               isCreating: false,
+               isLoading: false
             }
-
-       case THREAD_CREATED: 
-
-       return{
-        ...state,
-        isLoading: false
-       }
-
-        
+        case THREAD_CREATED: 
+            return{
+            ...state,
+            isCreating: false,
+            isLoading: true
+            }
+         
        default:
-
        return state
     }
 

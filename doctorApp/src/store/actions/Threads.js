@@ -1,4 +1,4 @@
-import { THREAD_CREATED, GET_THREAD, SET_THREAD, CREATING_THREAD } from '../actions/ActionTypes'
+import { THREAD_CREATED, GET_THREAD, SET_THREADS, CREATING_THREAD } from '../actions/ActionTypes'
 import axios from 'axios'
 
 const authBaseURL = 'https://identitytoolkit.googleapis.com/v1'
@@ -26,7 +26,6 @@ export const createThread = thread => {
                             text: `Você entrou na sala ${thread.name}.`,
                             createdAt: new Date().getTime()
                         }
-
                     }).catch(err => {
                         dispatch(setMessage({
                             title: 'Erro',
@@ -55,17 +54,48 @@ export const threadCreated = () => {
 }
 
 
-export const setThread = () => {
+export const setThread = threads => {
 
     return {
-        type: SET_THREAD
+        type: SET_THREADS,
+        payload: threads
     }
 }
 
-export const getThread = () => {
+export const getThreads = () => {
 
-    return {
+    return dispatch => {
+            
+            // a baseURL padrão foi definada no index
+           axios.get('/threads.json').catch(err => {
+            dispatch(setMessage({
+                title: 'Erro',
+                text: 'Não foi possivel carregar as salas'
+                }))
+           }).then(res => {
+            // a constante rawPosts recebe um objeto posts do Firabase com 3 atributos que identificam cada postagem
+            const rawThreads = res.data
+               const threads = []
+               //cada atributo do objeto é adicionado no array posts
+               for(let key in rawThreads){
+                   threads.push({
+                    //pega todos os atributos desse objeto
+                    ...rawThreads[key],
+                    id: key
+                   })
+               }
+               //chama o dispatch chamando o setposts passando o array com as postagens
+               //para ser renderizado no estado da aplicação
+               dispatch(setThread(threads.reverse()))
+               dispatch(Get())
+           })
+        }
+}
+
+export const Get = () =>{
+
+    return{
         type: GET_THREAD
     }
-}
 
+}

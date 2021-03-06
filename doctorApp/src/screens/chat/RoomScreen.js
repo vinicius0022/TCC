@@ -1,172 +1,117 @@
-// import React, { useState, useContext, useEffect } from 'react';
-// import { GiftedChat, Bubble, Send, SystemMessage } from 'react-native-gifted-chat';
-// import { ActivityIndicator, View, StyleSheet } from 'react-native';
-// import { IconButton } from 'react-native-paper';
-// import { AuthContext } from '../navigation/AuthProvider';
-// import { firebase } from '../firebase';
-// import useStatsBar from '../utils/useStatusBar';
+import React, { useState, useContext, useEffect, Component } from 'react';
+import { GiftedChat, Bubble, Send, SystemMessage } from 'react-native-gifted-chat';
+import { ActivityIndicator, View, StyleSheet } from 'react-native';
+import { IconButton } from 'react-native-paper';
+import { connect } from 'react-redux';
 
-// export default function RoomScreen({ route }) {
-//   useStatsBar('light-content');
+function renderBubble(props) {
+  return (
+    <Bubble {...props} wrapperStyle={{
+        right: {
+          backgroundColor: '#6646ee'
+        }
+      }}
+      textStyle={{
+        right: {
+          color: '#fff'
+        }
+      }}
+    />
+  );
+}
 
-//   const [ messages, setMessages ] = useState([]);
-//   const { thread } = route.params;
-//   const { user } = useContext(AuthContext);
-//   const currentUser = user.toJSON();
+function renderLoading() {
+  return (
+    <View style={styles.loadingContainer}>
+      <ActivityIndicator size='large' color='#6646ee' />
+    </View>
+  );
+}
 
-//   async function handleSend(messages) {
-//     const text = messages[0].text;
+function renderSend(props) {
+  return (
+    <Send {...props}>
+      <View style={styles.sendingContainer}>
+        <IconButton icon='send-circle' size={32} color='rgb(15,121,134)' />
+      </View>
+    </Send>
+  );
+}
 
-//     firebase.firestore()
-//       .collection('THREADS')
-//       .doc(thread._id)
-//       .collection('MESSAGES')
-//       .add({
-//         text,
-//         createdAt: new Date().getTime(),
-//         user: {
-//           _id: currentUser.uid,
-//           email: currentUser.email
-//         }
-//       });
+function scrollToBottomComponent() {
+  return (
+    <View style={styles.bottomComponentContainer}>
+      <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
+    </View>
+  );
+}
 
-//     await firebase.firestore()
-//       .collection('THREADS')
-//       .doc(thread._id)
-//       .set(
-//         {
-//           latestMessage: {
-//             text,
-//             createdAt: new Date().getTime()
-//           }
-//         },
-//         { merge: true }
-//       );
-//   }
+function renderSystemMessage(props) {
+  return (
+    <SystemMessage
+      {...props}
+      wrapperStyle={styles.systemMessageWrapper}
+      textStyle={styles.systemMessageText}
+    />
+  );
+}
 
-//   useEffect(() => {
-//     const messagesListener = firebase.firestore()
-//       .collection('THREADS')
-//       .doc(thread._id)
-//       .collection('MESSAGES')
-//       .orderBy('createdAt', 'desc')
-//       .onSnapshot(querySnapshot => {
-//         const messages = querySnapshot.docs.map(doc => {
-//           const firebaseData = doc.data();
-//           const data = {
-//             _id: doc.id,
-//             text: '',
-//             createdAt: new Date().getTime(),
-//             ...firebaseData
-//           };
+class RoomScreen extends Component {
 
-//           if (!firebaseData.system) {
-//             data.user = {
-//               ...firebaseData.user,
-//               name: firebaseData.user.email
-//             };
-//           }
+  state = {
+    messages: ['']
+  }
+  render(){
+  return (
+    <GiftedChat
+      messages={this.props.threads}
+      onSend={this.state.messages}
+      user={{ id: 15 }}
+      placeholder='Digite a sua mensagem aqui...'
+      alwaysShowSend
+      showUserAvatar
+      scrollToBottom
+      renderBubble={renderBubble}
+      renderLoading={renderLoading}
+      renderSend={renderSend}
+      scrollToBottomComponent={scrollToBottomComponent}
+      renderSystemMessage={renderSystemMessage}
+    />
+  );
+  }
+}
 
-//           return data;
-//         });
+const styles = StyleSheet.create({
+  loadingContainer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  sendingContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  bottomComponentContainer: {
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  systemMessageWrapper: {
+    backgroundColor: '#6646ee',
+    borderRadius: 4,
+    padding: 5
+  },
+  systemMessageText: {
+    fontSize: 14,
+    color: '#fff',
+    fontWeight: 'bold'
+  }
+});
 
-//         setMessages(messages);
-//       });
-//     return () => messagesListener();
-//   }, []);
+const mapStateToProps = ({user}) =>{
 
-//   function renderBubble(props) {
-//     return (
-//       <Bubble {...props} wrapperStyle={{
-//           right: {
-//             backgroundColor: '#6646ee'
-//           }
-//         }}
-//         textStyle={{
-//           right: {
-//             color: '#fff'
-//           }
-//         }}
-//       />
-//     );
-//   }
+  return{
+    id: user.id
+  }
+}
 
-//   function renderLoading() {
-//     return (
-//       <View style={styles.loadingContainer}>
-//         <ActivityIndicator size='large' color='#6646ee' />
-//       </View>
-//     );
-//   }
-
-//   function renderSend(props) {
-//     return (
-//       <Send {...props}>
-//         <View style={styles.sendingContainer}>
-//           <IconButton icon='send-circle' size={32} color='#6646ee' />
-//         </View>
-//       </Send>
-//     );
-//   }
-
-//   function scrollToBottomComponent() {
-//     return (
-//       <View style={styles.bottomComponentContainer}>
-//         <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
-//       </View>
-//     );
-//   }
-
-//   function renderSystemMessage(props) {
-//     return (
-//       <SystemMessage
-//         {...props}
-//         wrapperStyle={styles.systemMessageWrapper}
-//         textStyle={styles.systemMessageText}
-//       />
-//     );
-//   }
-
-//   return (
-//     <GiftedChat
-//       messages={messages}
-//       onSend={handleSend}
-//       user={{ _id: currentUser.uid }}
-//       placeholder='Digite a sua mensagem aqui...'
-//       alwaysShowSend
-//       showUserAvatar
-//       scrollToBottom
-//       renderBubble={renderBubble}
-//       renderLoading={renderLoading}
-//       renderSend={renderSend}
-//       scrollToBottomComponent={scrollToBottomComponent}
-//       renderSystemMessage={renderSystemMessage}
-//     />
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   loadingContainer: {
-//     flex: 1,
-//     alignItems: 'center',
-//     justifyContent: 'center'
-//   },
-//   sendingContainer: {
-//     justifyContent: 'center',
-//     alignItems: 'center'
-//   },
-//   bottomComponentContainer: {
-//     justifyContent: 'center',
-//     alignItems: 'center'
-//   },
-//   systemMessageWrapper: {
-//     backgroundColor: '#6646ee',
-//     borderRadius: 4,
-//     padding: 5
-//   },
-//   systemMessageText: {
-//     fontSize: 14,
-//     color: '#fff',
-//     fontWeight: 'bold'
-//   }
-// });
+export default connect(mapStateToProps)(RoomScreen)

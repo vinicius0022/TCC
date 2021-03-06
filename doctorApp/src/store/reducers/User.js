@@ -1,7 +1,7 @@
 import {USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED} from '../actions/ActionTypes'
 
 export const initialState = {
-    
+    id: null,
     nome: null,
     email: null,
     isLoading: false,
@@ -16,6 +16,7 @@ export const reducer = (state = initialState, action) => {
         case USER_LOGGED_IN:
             return {
                 ...state,
+                id: action.payload.id,
                 nome: action.payload.name,
                 email: action.payload.email,
                 token: action.payload.token

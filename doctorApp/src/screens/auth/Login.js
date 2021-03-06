@@ -14,7 +14,8 @@ import {
 import { ScrollView } from "react-native-gesture-handler";
 import {connect} from 'react-redux'
 import LogoHeader from "../../components/LogoHeader";
-
+import HomeStack from "../../navigation/HomeStack";
+import { NavigationContainer } from '@react-navigation/native';
 import { login } from '../../store/actions/User'
 
 
@@ -106,8 +107,6 @@ class Login extends Component {
   componentDidUpdate = prevProps => { 
 
     if(prevProps.isLoading && !this.props.isLoading){
-
-        this.props.navigation.navigate('Profile')
     }
 }
 

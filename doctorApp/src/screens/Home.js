@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image, Dimen
 import LogoHeader from '../components/LogoHeader'
 
 
-class Profile extends Component {
+class Home extends Component {
     
     logout = () =>{
         this.props.onLogout()
@@ -33,7 +33,7 @@ class Profile extends Component {
                 </TouchableOpacity>
                 </View>
                 <View style={styles.box}>
-                <TouchableOpacity onPress={() => {this.props.navigation.navigate('Chat')}} style={styles.inner}>
+                <TouchableOpacity onPress={() => {this.props.navigation.navigate('ChatApp')}} style={styles.inner}>
                         <Text style={styles.text2}>Chat</Text>
                 </TouchableOpacity>
                 </View>
@@ -103,4 +103,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Profile)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
