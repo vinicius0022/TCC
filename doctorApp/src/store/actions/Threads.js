@@ -1,4 +1,4 @@
-import { THREAD_CREATED, GET_THREAD, SET_THREADS, CREATING_THREAD } from '../actions/ActionTypes'
+import { THREAD_CREATED, GET_THREAD, SET_THREADS, CREATING_THREAD, SET_MESSAGES } from '../actions/ActionTypes'
 import axios from 'axios'
 
 const authBaseURL = 'https://identitytoolkit.googleapis.com/v1'
@@ -18,13 +18,24 @@ export const createThread = thread => {
                     text: 'Não foi possivel criar uma sala'
                 }))
             }).then(res => {
-                if (res.data.name) {
+                    if (res.data.name) {
                     axios.put(`/threads/${res.data.name}.json`, {
                         id: res.data.name,
                         name: thread.name,
+                        messages:[
+                            {
+                                id: res.data.name,
+                                createdAt: thread.latestMessage.createdAt,
+                                text: `Você entrou na sala ${thread.name}.`,
+                                user: {
+                                   id: '',
+                                   email: ''
+                                }
+                            }
+                        ],
                         latestMessage:{
                             text: `Você entrou na sala ${thread.name}.`,
-                            createdAt: new Date().getTime()
+                            createdAt: thread.latestMessage.createdAt
                         }
                     }).catch(err => {
                         dispatch(setMessage({
@@ -34,7 +45,8 @@ export const createThread = thread => {
                     }).then(() => {
                         dispatch(threadCreated())
                     })
-            }})
+        }
+        })
     }
 }
 
@@ -52,7 +64,6 @@ export const threadCreated = () => {
         type: THREAD_CREATED
     }
 }
-
 
 export const setThread = threads => {
 
@@ -97,5 +108,4 @@ export const Get = () =>{
     return{
         type: GET_THREAD
     }
-
 }

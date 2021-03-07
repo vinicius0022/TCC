@@ -1,4 +1,4 @@
-import { THREAD_CREATED, GET_THREAD, CREATING_THREAD, SET_THREADS } from '../actions/ActionTypes'
+import { THREAD_CREATED, GET_THREAD, CREATING_THREAD, SET_THREADS, SET_MESSAGE } from '../actions/ActionTypes'
 
 export const initialState = {
         threads:[],
@@ -15,6 +15,13 @@ export const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 threads: action.payload,
+                isCreating: false,
+                isLoading: false
+            }
+            case SET_MESSAGE:
+            return{
+                ...state,
+                message: action.payload,
                 isCreating: false,
                 isLoading: false
             }

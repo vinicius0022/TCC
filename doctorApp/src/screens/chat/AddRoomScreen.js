@@ -6,19 +6,30 @@ import FormInput from '../../components/chat/FormInput'
 import {connect} from 'react-redux'
 import {createThread} from '../../store/actions/Threads'
 
+
+const date = new Date()
+const dateString = Date(date)
 class AddRoomScreen extends Component{
-    
     state ={
            id: '',
             name: '',
+            messages:[
+                {
+                    createdAt: Date(dateString),
+                    text: '',
+                    user: {
+                        id: '',
+                        email: ''
+                    }
+                }
+            ],
             latestMessage: {
               text: '',
-              createdAt: Date
+              createdAt: Date(dateString)
             }
         }
 
         render(){
-
     return(
         <SafeAreaView style={styles.rootContainer}>
             <SafeAreaView style={styles.closeButtonContainer}>
@@ -35,11 +46,8 @@ class AddRoomScreen extends Component{
 }
 
 componentDidUpdate = prevProps => { 
-console.log(prevProps.isLoading + " e " + !this.props.isLoading)
     if(prevProps.isLoading && this.props.isLoading){   
-        setTimeout(() => {
-            this.props.navigation.navigate('HomeScreen')            
-        }, 2000);
+        this.props.navigation.navigate('HomeScreen')            
     }
 }
 

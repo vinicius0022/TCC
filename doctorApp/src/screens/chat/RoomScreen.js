@@ -3,6 +3,7 @@ import { GiftedChat, Bubble, Send, SystemMessage } from 'react-native-gifted-cha
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { connect } from 'react-redux';
+import {getMessages} from '../../store/actions/MessagesChat'
 
 function renderBubble(props) {
   return (
@@ -59,14 +60,25 @@ function renderSystemMessage(props) {
 class RoomScreen extends Component {
 
   state = {
-    messages: ['']
+      id: '',
+      createdAt: '',
+      text: '',
+      user: {
+        id: '',
+        email: ''
+      }
   }
+
+  componentDidMount = () =>{
+    this.props.onGetMessages()
+  }
+
   render(){
   return (
     <GiftedChat
-      messages={this.props.threads}
-      onSend={this.state.messages}
-      user={{ id: 15 }}
+      messages={this.props.messages}
+      onSend={this.state}
+      user={{ _id: 15 }}
       placeholder='Digite a sua mensagem aqui...'
       alwaysShowSend
       showUserAvatar
@@ -107,11 +119,20 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({user}) =>{
+const mapStateToProps = ({messages}) =>{
 
   return{
-    id: user.id
+    messages: messages.messages
   }
 }
 
-export default connect(mapStateToProps)(RoomScreen)
+const mapDispatchToProps = dispatch => {
+
+  return{
+    onGetMessages: () => dispatch(getMessages())
+  }
+}
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(RoomScreen)

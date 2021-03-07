@@ -1,5 +1,3 @@
-import { exp } from "react-native-reanimated"
-
 // Action - Login
 export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 
@@ -31,5 +29,7 @@ export const CREATING_THREAD = 'CREATING_THREAD'
 export const THREAD_CREATED = 'THREAD_CREATED'
 
 export const SET_THREADS = 'SET_THREADS'
+
+export const SET_MESSAGES = 'SET_MESSAGES'
 
 export const GET_THREAD = 'GET_THREAD'
