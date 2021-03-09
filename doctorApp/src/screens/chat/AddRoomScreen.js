@@ -46,7 +46,27 @@ class AddRoomScreen extends Component{
 }
 
 componentDidUpdate = prevProps => { 
-    if(prevProps.isLoading && this.props.isLoading){   
+    console.log(this.props.isLoading)
+    if(prevProps.isLoading && !this.props.isLoading){   
+        this.setState( {
+            id: '',
+            name: '',
+            messages:[
+                {
+                    createdAt: null,
+                    text: '',
+                    user: {
+                        id: '',
+                        email: ''
+                    }
+                }
+            ],
+            latestMessage: {
+              text: '',
+              createdAt: null
+            }
+        })
+
         this.props.navigation.navigate('HomeScreen')            
     }
 }

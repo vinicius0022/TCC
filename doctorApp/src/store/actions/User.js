@@ -1,5 +1,5 @@
 
-import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED } from './ActionTypes'
+import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS } from './ActionTypes'
 import axios from 'axios'
 import { setMessage } from './Message'
 
@@ -176,5 +176,37 @@ export const forgot = user => {
                 text: `Verifique a caixa de entrada do email ${user.email} para realizar a redefinição da senha.`
             }))
             })
+    }
+}
+
+
+export const getUser = () =>{
+
+    return dispatch => {
+        
+        axios.get('/users.json').catch(err =>{
+            dispatch(setMessage({
+                title: 'Erro',
+                text: 'Não foi possivel buscar os usuários'
+            }))
+        }).then(res =>{
+            const rawUsers = res.data
+            const users = []
+            for(let item in rawUsers){
+                users.push({
+                    ...rawUsers[item],
+                    id: res.data.name
+                })
+            }
+            dispatch(setUsers(users))
+        })
+    }
+}
+
+export const setUsers = users =>{
+
+    return{
+        type: SET_USERS,
+        payload: users
     }
 }

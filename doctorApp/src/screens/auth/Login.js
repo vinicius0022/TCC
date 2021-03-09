@@ -106,7 +106,9 @@ class Login extends Component {
   }
   componentDidUpdate = prevProps => { 
 
-    if(prevProps.isLoading && !this.props.isLoading){
+    if(prevProps.isAuthentic && !this.props.isAuthentic){
+
+      this.props.navigation.navigate('Home')
     }
 }
 
@@ -222,7 +224,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = ({user}) =>{
     
   return{
-      isLoading: user.isLoading
+    isAuthentic: user.isAuthentic
   }
 }
 

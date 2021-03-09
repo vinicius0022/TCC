@@ -10,8 +10,16 @@ export const LOADING_USER = 'LOADING_USER'
 //Action - Usuario criado
 export const USER_LOADED = 'USER_LOADED'
 
+export const SET_USERS = 'SET_USERS'
+
 //Action que apresenta mensagens de possiveis erro ao usuario
 export const SET_MESSAGE = 'SET_MESSAGE'
+
+export const CREATING_MESSAGES = 'CREATING_MESSAGES'
+
+export const CREATED_MESSAGES = 'CREATED_MESSAGES'
+
+export const CREATING_MESSAGE = 'CREATING_MESSAGE'
 
 //Action que informa que o processo de criação de um paciente no banco de dados está em andamento
 export const CREATING_PATIENT = 'CREATING_PATIENT'

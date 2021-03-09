@@ -2,7 +2,6 @@ import { THREAD_CREATED, GET_THREAD, CREATING_THREAD, SET_THREADS, SET_MESSAGE }
 
 export const initialState = {
         threads:[],
-        isCreating: false,
         isLoading: false
 }
 
@@ -15,33 +14,28 @@ export const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 threads: action.payload,
-                isCreating: false,
                 isLoading: false
             }
             case SET_MESSAGE:
             return{
                 ...state,
                 message: action.payload,
-                isCreating: false,
                 isLoading: false
             }
         case CREATING_THREAD:
             return{
             ...state,
-            isCreating: true,
             isLoading: true
             }
         case GET_THREAD:
             return{
                ...state,
-               isCreating: false,
                isLoading: false
             }
         case THREAD_CREATED: 
             return{
             ...state,
-            isCreating: false,
-            isLoading: true
+            isLoading: false
             }
          
        default:

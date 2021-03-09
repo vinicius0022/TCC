@@ -1,48 +1,30 @@
-import { SET_MESSAGES } from '../actions/ActionTypes'
+import { SET_MESSAGES, CREATING_MESSAGES, CREATED_MESSAGES } from '../actions/ActionTypes'
 import axios from 'axios'
 import { cos } from 'react-native-reanimated'
 
-export const getMessages = () =>{
+export const getMessages = thread => {
     return dispatch => {
-        const allMessage = []
-        axios.get('/threads.json').catch(err => {
+        dispatch(creatingMessages())
+        console.log('-'+thread)
+        axios.get(`threads/${thread}/messages.json`).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
                 text: 'Não foi possivel carregar as salas'
-                })) 
-           }).then(res => {
-            const rawThreads = res.data
-        const threads = []
-
-               for(let keyThread in rawThreads){
-                   threads.push({
-                    ...rawThreads[keyThread],
-                    id: keyThread
-                   })
-                   
-                   axios.get(`threads/${keyThread}/messages.json`).catch(err => {
-                    dispatch(setMessage({
-                        title: 'Erro',
-                        text: 'Não foi possivel carregar as salas'
-                    }))
-           }).then(res => {
+            }))
+        }).then(res => {
             const rawMessages = res.data
             const messages = [];
-               for(let key in rawMessages){
-                   if(keyThread == rawMessages[key].id){
-                   messages.push({
-                    ...rawMessages[key],
-                    id: key
-                   })
-                }
-                console.log("teste1"+rawMessages[key].id+ " - " + keyThread)
-                dispatch(setMessages(messages.reverse()))
+            for (let key in rawMessages) {
+                    messages.push({
+                        ...rawMessages[key],
+                        id: key
+                    })
+                dispatch(setMessages(messages))
+                dispatch(createdMessages())
             }
-            })
-        }       
-        
-    })
-}
+        })
+
+    }
 }
 
 export const setMessages = messages => {
@@ -50,5 +32,18 @@ export const setMessages = messages => {
     return {
         type: SET_MESSAGES,
         payload: messages
+    }
+}
+
+export const creatingMessages = () => {
+
+    return {
+        type: CREATING_MESSAGES
+    }
+}
+export const createdMessages = () => {
+
+    return {
+        type: CREATED_MESSAGES
     }
 }

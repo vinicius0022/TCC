@@ -1,11 +1,11 @@
-import React, { useState, useContext, useEffect, Component } from 'react';
+import React, { Component } from 'react';
 import { GiftedChat, Bubble, Send, SystemMessage } from 'react-native-gifted-chat';
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { connect } from 'react-redux';
 import {getMessages} from '../../store/actions/MessagesChat'
 
-function renderBubble(props) {
+const renderBubble = props => {
   return (
     <Bubble {...props} wrapperStyle={{
         right: {
@@ -21,7 +21,7 @@ function renderBubble(props) {
   );
 }
 
-function renderLoading() {
+const renderLoading = () => {
   return (
     <View style={styles.loadingContainer}>
       <ActivityIndicator size='large' color='#6646ee' />
@@ -29,7 +29,7 @@ function renderLoading() {
   );
 }
 
-function renderSend(props) {
+const renderSend = props =>{
   return (
     <Send {...props}>
       <View style={styles.sendingContainer}>
@@ -39,7 +39,7 @@ function renderSend(props) {
   );
 }
 
-function scrollToBottomComponent() {
+const scrollToBottomComponent = () => {
   return (
     <View style={styles.bottomComponentContainer}>
       <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
@@ -47,7 +47,7 @@ function scrollToBottomComponent() {
   );
 }
 
-function renderSystemMessage(props) {
+const renderSystemMessage = props => {
   return (
     <SystemMessage
       {...props}
@@ -69,12 +69,15 @@ class RoomScreen extends Component {
       }
   }
 
+ 
+  
   componentDidMount = () =>{
     this.props.onGetMessages()
   }
 
+ 
   render(){
-  return (
+    return (
     <GiftedChat
       messages={this.props.messages}
       onSend={this.state}
@@ -91,6 +94,10 @@ class RoomScreen extends Component {
     />
   );
   }
+
+  componentDidUpdate = prevProps => { 
+}
+
 }
 
 const styles = StyleSheet.create({
@@ -119,17 +126,20 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({messages}) =>{
-
-  return{
+const mapStateToProps = ({ threads, messages }) => {
+  return {
+    threads: threads.threads,
+    isLoading: threads.isLoading,
     messages: messages.messages
+
+
   }
 }
 
 const mapDispatchToProps = dispatch => {
 
   return{
-    onGetMessages: () => dispatch(getMessages())
+    onGetMessages: thread => dispatch(getMessages(thread))
   }
 }
 

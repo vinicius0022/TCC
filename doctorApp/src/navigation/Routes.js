@@ -8,12 +8,30 @@ import user from './../store/reducers/User'
 class Routes extends Component{
 
   render(){
+
+    console.log(this.props.isAuthentic)
+
     return (
     <NavigationContainer>
-      <HomeStack />
+      {this.props.isAuthentic ? <HomeStack /> : <AuthStack/>}
     </NavigationContainer>
     );
   }
 }
 
-export default Routes;
+
+const mapStateToProps = ({user}) =>{
+    
+  return{
+    isAuthentic: user.isAuthentic
+  }
+}
+
+// const mapDispatchToProps = dispatch => {
+  
+//   return {
+//       onGetUser: () => dispatch(getUser())
+//   }
+// }
+
+export default connect(mapStateToProps)(Routes);

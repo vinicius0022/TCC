@@ -1,17 +1,17 @@
-import {USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED} from '../actions/ActionTypes'
+import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS } from '../actions/ActionTypes'
 
 export const initialState = {
     id: null,
     nome: null,
     email: null,
-    isLoading: false,
+    isAuthentic: false,
     token: false
 }
 
 
 export const reducer = (state = initialState, action) => {
 
-    switch (action.type){
+    switch (action.type) {
 
         case USER_LOGGED_IN:
             return {
@@ -21,24 +21,29 @@ export const reducer = (state = initialState, action) => {
                 email: action.payload.email,
                 token: action.payload.token
             }
-            break;
         case USER_LOGGED_OUT:
             return {
                 ...initialState
             }
-            break;
-
         case LOADING_USER:
-            return{
+            return {
                 ...state,
-                isLoading: true
+                isAuthentic: false
             }
-        case  USER_LOADED:
-            return{
+        case USER_LOADED:
+            return {
                 ...state,
-                isLoading: false
+                isAuthentic: true
             }
-        default: 
+
+        case SET_USERS:
+            return {
+                ...state,
+                users: action.payload,
+                isAuthentic: true
+            }
+
+        default:
             return state
-    }   
+    }
 }

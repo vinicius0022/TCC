@@ -13,6 +13,32 @@ class HomeScreen extends Component {
     this.props.onGetThreads()
   }
 
+  componentDidUpdate = prevProps => { 
+    console.log("HomeScreen" + this.props.messages)
+
+    if(prevProps.isLoading && !this.props.isLoading){   
+        this.setState( {
+            id: '',
+            name: '',
+            messages:[
+                {
+                    createdAt: null,
+                    text: '',
+                    user: {
+                        id: '',
+                        email: ''
+                    }
+                }
+            ],
+            latestMessage: {
+              text: '',
+              createdAt: null
+            }
+        })
+
+    }
+}
+
   render() {
     return (
       <View style={styles.container}>
