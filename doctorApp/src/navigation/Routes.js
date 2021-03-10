@@ -9,8 +9,6 @@ class Routes extends Component{
 
   render(){
 
-    console.log(this.props.isAuthentic)
-
     return (
     <NavigationContainer>
       {this.props.isAuthentic ? <HomeStack /> : <AuthStack/>}

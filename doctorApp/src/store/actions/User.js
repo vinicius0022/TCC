@@ -49,7 +49,7 @@ export const createUser = user => {
 
                         id: res.data.localId,
                         email: res.data.email,
-                        nome: user.nome,
+                        name: user.name,
                         sobrenome: user.sobrenome,
                         cpf: user.cpf,
                         rg: user.rg,
@@ -131,8 +131,9 @@ export const login = user => {
                         })
                         .then(res => {
                             delete user.senha
-                            user.nome = res.data.nome
+                            user.name = res.data.name
                             user.id = res.data.id
+                            console.log(user)
                             dispatch(userLogged(user))
                             dispatch(userLoaded())
                         })
@@ -195,9 +196,8 @@ export const getUser = () =>{
             for(let item in rawUsers){
                 users.push({
                     ...rawUsers[item],
-                    id: res.data.name
                 })
-            }
+            }            
             dispatch(setUsers(users))
         })
     }

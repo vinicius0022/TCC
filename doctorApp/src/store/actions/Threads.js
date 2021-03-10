@@ -1,6 +1,6 @@
-import { THREAD_CREATED, GET_THREAD, SET_THREADS, CREATING_THREAD, SET_MESSAGES } from '../actions/ActionTypes'
+import { THREAD_CREATED, CREATING_THREAD, SET_THREADS } from '../actions/ActionTypes'
 import axios from 'axios'
-import { getMessages } from './MessagesChat'
+import { setMessage } from './Message'
 
 const authBaseURL = 'https://identitytoolkit.googleapis.com/v1'
 const API_KEY = 'AIzaSyDHIUKoCidl2nc156NJ688D5MZUIRj1j48'
@@ -9,48 +9,55 @@ export const createThread = thread => {
     return (dispatch, getState) => {
 
         dispatch(creatingThread())
-
         //requisição para inserir os dados no banco
-        axios.post(`/threads.json`, {...thread})
+        axios.post(`/threads.json`, { ...thread })
             .catch(erro => {
                 dispatch(setMessage({
                     title: 'Erro',
                     text: 'Não foi possivel criar uma sala'
                 }))
             }).then(res => {
-                    if (res.data.name) {
+                if (res.data.name) {
                     axios.put(`/threads/${res.data.name}.json`, {
-                        id: res.data.name,                        
+                        id: res.data.name,
                         name: thread.name,
-                        messages:[
+                        userId: getState().user.id,
+                        messages: [
                             {
                                 id: res.data.name,
                                 createdAt: thread.latestMessage.createdAt,
                                 text: `Você entrou na sala ${thread.name}.`,
                                 user: {
-                                   id: '',
-                                   email: ''
+                                    id: '',
+                                    email: ''
                                 }
                             }
                         ],
-                        latestMessage:{
+                        latestMessage: {
                             text: `Você entrou na sala ${thread.name}.`,
                             createdAt: thread.latestMessage.createdAt
                         }
+
                     }).catch(err => {
                         dispatch(setMessage({
                             title: 'Erro',
                             text: 'Não foi possivel criar a sala, tente novamente mais tarde!'
                         }))
-                    }).then(() => {
-                        dispatch(threadCreated())
-                        
                     })
-                    
-                    console.log('teste ' + res.data.name)
-                    dispatch(getMessages(res.data.name)) 
-        }
-        })
+
+                    axios.get(`/threads/${res.data.name}.json`).catch(err => {
+                        dispatch(setMessage({
+                            title: 'Erro',
+                            text: 'Não foi possivel carregar as salas'
+                        }))
+                    }).then(res => {
+                        if (res.data) {
+                            console.log(res.data.id)
+                            dispatch(threadCreated(res.data))
+                        }
+                    })
+                }
+            })
     }
 }
 
@@ -61,55 +68,42 @@ export const creatingThread = () => {
     }
 }
 
-export const threadCreated = () => {
+export const threadCreated = thread => {
 
     return {
 
-        type: THREAD_CREATED
+        type: THREAD_CREATED,
+        payload: thread
     }
 }
 
-export const setThread = threads => {
+export const setThreads = threads => {
 
     return {
+
         type: SET_THREADS,
         payload: threads
     }
 }
 
-export const getThreads = () => {
-
-    return dispatch => {
-            
-            // a baseURL padrão foi definada no index
-           axios.get('/threads.json').catch(err => {
+export const getThreads = () =>{
+    
+    return dispatch =>{
+        axios.get(`/threads.json`).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
                 text: 'Não foi possivel carregar as salas'
-                }))
-           }).then(res => {
-            // a constante rawPosts recebe um objeto posts do Firabase com 3 atributos que identificam cada postagem
-            const rawThreads = res.data
-               const threads = []
-               //cada atributo do objeto é adicionado no array posts
-               for(let key in rawThreads){
-                   threads.push({
-                    //pega todos os atributos desse objeto
-                    ...rawThreads[key],
-                    id: key
-                   })
-               }
-               //chama o dispatch chamando o setposts passando o array com as postagens
-               //para ser renderizado no estado da aplicação
-               dispatch(setThread(threads.reverse()))
-               dispatch(Get())
-           })
-        }
-}
+            }))
+        }).then(res => {
+                const rawThreads = res.data;
+                const threads = [];
 
-export const Get = () =>{
-
-    return{
-        type: GET_THREAD
+                for(let item in rawThreads){
+                    threads.push({
+                        ...rawThreads[item]
+                    })
+                }
+                dispatch(setThreads(threads.reverse()))
+        })
     }
 }

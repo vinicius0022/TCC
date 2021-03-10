@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux'
-import { logout } from '../store/actions/User'
+import { getUser, logout } from '../store/actions/User'
 import { StyleSheet, Text, View, TouchableOpacity, ImageBackground, Image, Dimensions} from 'react-native'
 import LogoHeader from '../components/LogoHeader'
+import { getThreads } from '../store/actions/Threads'
 
 
 class Home extends Component {
@@ -12,8 +13,16 @@ class Home extends Component {
         this.props.navigation.navigate('Login')
     }
 
-    render(){
+    getData = () =>{
+        this.props.onGetUser()
+        this.props.onGetThreads()
+        console.log('User ' + this.props.user[0].id)
+        console.log('Thread ' + this.props.threads[0].id)
+    
+        }
 
+    render(){
+            
         return(
         <View style={styles.container}>
                 <View style={styles.background}>
@@ -38,7 +47,7 @@ class Home extends Component {
                 </TouchableOpacity>
                 </View>
                     <View style={styles.box}>
-                        <TouchableOpacity onPress={this.logout}
+                        <TouchableOpacity onPress={this.getData}
                         style={styles.inner}>
                             <Text style={styles.text2}>Sair</Text>
                         </TouchableOpacity>
@@ -48,8 +57,8 @@ class Home extends Component {
         </View>
         )
     }
+    
 }
-
 const styles = StyleSheet.create({
     container:{
         flex: 1
@@ -90,16 +99,21 @@ const styles = StyleSheet.create({
     }
 })
 
-const mapStateToProps = ({ user }) =>{
+const mapStateToProps = ({ user, threads }) =>{
     return {
         email: user.email,
-        name: user.name
+        name: user.name,
+        user: user.user,
+        threads: threads.threads
+
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        onLogout: () => dispatch(logout())
+        onLogout: () => dispatch(logout()),
+        onGetUser: () => dispatch(getUser()),
+        onGetThreads: () => dispatch(getThreads())
     }
 }
 

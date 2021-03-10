@@ -24,7 +24,7 @@ class SignUp extends Component {
     if (prevProps.isLoading && !this.props.isLoading) {
       this.setState({
 
-        nome: '',
+        name: '',
         sobrenome: '',
         email: '',
         cpf: '',
@@ -40,7 +40,7 @@ class SignUp extends Component {
   }
 
   state = {
-    nome: '',
+    name: '',
     sobrenome: '',
     email: '',
     cpf: '',
@@ -66,9 +66,9 @@ class SignUp extends Component {
                 <View style={styles.textInput}>
                   <TextInput
                     autoFocus={true}
-                    value={this.state.nome}
+                    value={this.state.name}
                     //o campo espera receber uma string
-                    onChangeText={nome => this.setState({ nome })}
+                    onChangeText={name => this.setState({ name })}
                     placeholder="Nome"
                     placeholderTextColor="rgba(255,255,255,1)"
                     style={styles.Input}

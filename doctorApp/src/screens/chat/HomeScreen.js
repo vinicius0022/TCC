@@ -8,14 +8,8 @@ import Room from '../../components/chat/Room';
 
 class HomeScreen extends Component {
 
-
-  componentDidMount = () => {
-    this.props.onGetThreads()
-  }
-
   componentDidUpdate = prevProps => { 
-    console.log("HomeScreen" + this.props.messages)
-
+    this.props.onGetThreads()
     if(prevProps.isLoading && !this.props.isLoading){   
         this.setState( {
             id: '',
@@ -37,6 +31,10 @@ class HomeScreen extends Component {
         })
 
     }
+}
+
+componentDidMount = () =>{
+  this.props.onGetThreads()
 }
 
   render() {
@@ -83,6 +81,7 @@ const mapStateToProps = ({ threads }) => {
 }
 
 const mapDispatchToProps = dispatch => {
+
   return {
     onGetThreads: () => dispatch(getThreads())
   }

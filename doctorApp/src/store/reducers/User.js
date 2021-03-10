@@ -2,7 +2,7 @@ import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS }
 
 export const initialState = {
     id: null,
-    nome: null,
+    name: null,
     email: null,
     isAuthentic: false,
     token: false
@@ -17,7 +17,7 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 id: action.payload.id,
-                nome: action.payload.name,
+                name: action.payload.name,
                 email: action.payload.email,
                 token: action.payload.token
             }
@@ -39,7 +39,7 @@ export const reducer = (state = initialState, action) => {
         case SET_USERS:
             return {
                 ...state,
-                users: action.payload,
+                user: action.payload,
                 isAuthentic: true
             }
 
