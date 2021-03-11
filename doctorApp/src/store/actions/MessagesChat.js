@@ -1,11 +1,9 @@
 import { SET_MESSAGES, CREATING_MESSAGES, CREATED_MESSAGES } from '../actions/ActionTypes'
 import axios from 'axios'
-import { cos } from 'react-native-reanimated'
+import { set } from 'react-native-reanimated'
 
 export const getMessages = thread => {
     return dispatch => {
-        dispatch(creatingMessages())
-        console.log('-'+thread)
         axios.get(`threads/${thread}/messages.json`).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
@@ -17,10 +15,8 @@ export const getMessages = thread => {
             for (let key in rawMessages) {
                     messages.push({
                         ...rawMessages[key],
-                        id: key
                     })
                 dispatch(setMessages(messages))
-                dispatch(createdMessages())
             }
         })
 
@@ -35,10 +31,30 @@ export const setMessages = messages => {
     }
 }
 
-export const creatingMessages = () => {
+export const creatingMessages = messages => {
 
-    return {
-        type: CREATING_MESSAGES
+    return dispatch => {
+        dispatch(creatingMessages())
+        axios.post(`/threads/${id}/messages.json`, {...messages}).catch(err =>{
+            dispatch(setMessages({
+                title: 'Erro',
+                text: 'Não foi possivel enviar menssagem'
+            }))
+        }).then(res =>{
+            if(res.data.name){
+                axios.put(`/threads/${id}/messages/${res.data.name}.json`,{
+                    id: res.data.name,
+                    createdAt: messages.createdAt,
+                    text: messages.text,
+                    user: {
+                        id: messages.user.id,
+                        email: messages.user.email
+                    }
+                });
+            }
+            console.log("Mensagem criada")
+            dispatch(createdMessages())
+        })
     }
 }
 export const createdMessages = () => {

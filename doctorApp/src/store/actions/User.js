@@ -113,7 +113,8 @@ export const login = user => {
     return dispatch => {
 
         dispatch(loadingUser())
-        axios.post(`${authBaseURL}/accounts:signInWithPassword?key=${API_KEY}`, dados, config).catch(err => {
+        axios.post(`${authBaseURL}/accounts:signInWithPassword?key=${API_KEY}`, dados, config)
+        .catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
                 text: `Não foi possivel fazer o login, e-mail e senha inválidos!`   
@@ -124,6 +125,7 @@ export const login = user => {
                     user.token = res.data.idToken
                     axios.get(`/users/${res.data.localId}.json`)
                         .catch(err => {
+                            
                             dispatch(setMessage({
                                 title: 'Erro',
                                 text: 'Não foi possivel fazer o login, tente novamente mais tarde!'

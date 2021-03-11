@@ -88,7 +88,7 @@ export const setThreads = threads => {
 
 export const getThreads = () =>{
     
-    return dispatch =>{
+    return (dispatch, getState) =>{
         axios.get(`/threads.json`).catch(err => {
             dispatch(setMessage({
                 title: 'Erro',
@@ -99,6 +99,7 @@ export const getThreads = () =>{
                 const threads = [];
 
                 for(let item in rawThreads){
+                    if(res.data[item].userId == getState().user.id)
                     threads.push({
                         ...rawThreads[item]
                     })

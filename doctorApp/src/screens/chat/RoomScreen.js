@@ -4,84 +4,94 @@ import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { connect } from 'react-redux';
 import {getMessages} from '../../store/actions/MessagesChat'
-
-const renderBubble = props => {
-  return (
-    <Bubble {...props} wrapperStyle={{
-        right: {
-          backgroundColor: '#6646ee'
-        }
-      }}
-      textStyle={{
-        right: {
-          color: '#fff'
-        }
-      }}
-    />
-  );
-}
-
-const renderLoading = () => {
-  return (
-    <View style={styles.loadingContainer}>
-      <ActivityIndicator size='large' color='#6646ee' />
-    </View>
-  );
-}
-
-const renderSend = props =>{
-  return (
-    <Send {...props}>
-      <View style={styles.sendingContainer}>
-        <IconButton icon='send-circle' size={32} color='rgb(15,121,134)' />
-      </View>
-    </Send>
-  );
-}
-
-const scrollToBottomComponent = () => {
-  return (
-    <View style={styles.bottomComponentContainer}>
-      <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
-    </View>
-  );
-}
-
-const renderSystemMessage = props => {
-  return (
-    <SystemMessage
-      {...props}
-      wrapperStyle={styles.systemMessageWrapper}
-      textStyle={styles.systemMessageText}
-    />
-  );
-}
-
 class RoomScreen extends Component {
 
   state = {
-      id: '',
-      createdAt: '',
+      id: this.props.id,
+      createdAt: new Date().getTime(),
       text: '',
       user: {
-        id: '',
-        email: ''
+        id: this.props.userId,
+        email: this.props.email
       }
   }
 
  
   
   componentDidMount = () =>{
-    this.props.onGetMessages()
+      this.props.onGetMessages(this.props.route.params.threads.id)
+      
   }
 
  
   render(){
+    function renderBubble(props) {
+      return (
+        <Bubble {...props} wrapperStyle={{
+            right: {
+              backgroundColor: '#6646ee'
+            }
+          }}
+          textStyle={{
+            right: {
+              color: '#fff'
+            }
+          }}
+        />
+      );
+    }
+    
+    function renderLoading(){
+      return (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator size='large' color='#6646ee' />
+        </View>
+      );
+    }
+    
+    function renderSend(props){
+      return (
+        <Send {...props}>
+          <View style={styles.sendingContainer}>
+            <IconButton icon='send-circle' size={32} color='rgb(15,121,134)' />
+          </View>
+        </Send>
+      );
+    }
+    
+    function scrollToBottomComponent(){
+      return (
+        <View style={styles.bottomComponentContainer}>
+          <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
+        </View>
+      );
+    }
+    
+    function renderSystemMessage(props){
+      console.log(props)
+      return (
+        <SystemMessage
+          {...props}
+          wrapperStyle={styles.systemMessageWrapper}
+          textStyle={styles.systemMessageText}
+        />
+      );
+    }
+    const getMessages = ''
+    function handleSend(){
+      console.log(this.state) 
+      return this.props.onSendMessage(this.state)
+    }
+    
+    
+
+
     return (
     <GiftedChat
-      messages={this.props.messages}
-      onSend={this.state}
-      user={{ _id: 15 }}
+      messages={getMessages}
+      onSend={handleSend}
+      onInputTextChanged={text => this.setState({text})}
+      user={{ id: this.props.userId }}
       placeholder='Digite a sua mensagem aqui...'
       alwaysShowSend
       showUserAvatar
@@ -95,8 +105,6 @@ class RoomScreen extends Component {
   );
   }
 
-  componentDidUpdate = prevProps => { 
-}
 
 }
 
@@ -126,11 +134,14 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ threads, messages }) => {
+const mapStateToProps = ({ threads, messages, user }) => {
   return {
-    threads: threads.threads,
+    id: threads.id,
     isLoading: threads.isLoading,
-    messages: messages.messages
+    messages: messages.messages,
+    threads: threads.threads,
+    userId: user.id,
+    email: user.email
 
 
   }
@@ -139,7 +150,8 @@ const mapStateToProps = ({ threads, messages }) => {
 const mapDispatchToProps = dispatch => {
 
   return{
-    onGetMessages: thread => dispatch(getMessages(thread))
+    onGetMessages: thread => dispatch(getMessages(thread)),
+    onSendMessage: messages => dispatch(creatingMessages(messages))
   }
 }
 

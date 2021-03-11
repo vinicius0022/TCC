@@ -38,6 +38,15 @@ componentDidMount = () =>{
 }
 
   render() {
+
+    if(this.props.isLoading){
+
+      return(
+        <Loading/>
+      )
+    }
+
+
     return (
       <View style={styles.container}>
         <FlatList
