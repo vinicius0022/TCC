@@ -48,7 +48,7 @@ export const creatingMessages = messages => {
                     createdAt: messages[0].createdAt,
                     text: messages[0].text,
                     user: {
-                        id: messages[0].user._id,
+                        _id: messages[0].user._id,
                         email: getState().user.email,
                         idThread: messages[0].user.idThread
                     }

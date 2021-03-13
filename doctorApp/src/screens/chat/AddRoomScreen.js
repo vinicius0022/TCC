@@ -9,6 +9,12 @@ class AddRoomScreen extends Component {
     state = {
         id: '',
         name: '',
+        users:[
+            {
+                name: this.props.name,
+                email: this.props.email
+            }
+        ],
         messages: [
             {
                 createdAt: new Date().getTime(),

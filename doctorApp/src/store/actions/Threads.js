@@ -21,7 +21,12 @@ export const createThread = thread => {
                     axios.put(`/threads/${res.data.name}.json`, {
                         id: res.data.name,
                         name: thread.name,
-                        userId: getState().user.id,
+                        users:[
+                            {
+                                name: getState().user.name,
+                                email: getState().user.email
+                            }
+                        ],
                         messages: [
                             {
                                 id: '',
@@ -29,7 +34,7 @@ export const createThread = thread => {
                                 createdAt: '',
                                 text: `Você entrou na sala ${thread.name}`,
                                 user: {
-                                    id: getState().user.id,
+                                    _id: getState().user.id,
                                     email: getState().user.email
                                 },
                                 system: true
@@ -55,7 +60,6 @@ export const createThread = thread => {
                         }))
                     }).then(res => {
                         if (res.data) {
-                            console.log(res.data.id)
                             dispatch(threadCreated(res.data))
                         }
                     })
@@ -100,13 +104,16 @@ export const getThreads = () =>{
         }).then(res => {
                 const rawThreads = res.data;
                 const threads = [];
-
                 for(let item in rawThreads){
-                    if(res.data[item].userId == getState().user.id)
-                    threads.push({
-                        ...rawThreads[item]
-                    })
+                    for(let user in rawThreads[item].users){
+                        if(rawThreads[item].users[user].email == getState().user.email)
+                        threads.push({
+                            ...rawThreads[item]
+                        })
+                    }
                 }
+
+                
                 dispatch(setThreads(threads.reverse()))
         })
     }

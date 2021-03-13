@@ -85,7 +85,7 @@ class RoomScreen extends Component {
         messages={this.props.messages}
         onSend={handleSend}
         user={{
-          id: this.props.userId,
+          _id: this.props.userId,
           idThread: this.props.route.params.threads.id
         }}
         placeholder='Digite a sua mensagem aqui...'
