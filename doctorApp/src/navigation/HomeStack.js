@@ -6,6 +6,7 @@ import { IconButton } from 'react-native-paper';
 import HomeScreen from '../screens/chat/HomeScreen';
 import RoomScreen from '../screens/chat/RoomScreen';
 import AddRoomScreen from '../screens/chat/AddRoomScreen';
+import AddUserScreen from '../screens/chat/AddUserScreen';
 import Home from './../screens/Home'
 import ListarPaciente from './../screens/ListarPaciente'
 import RegistrarPaciente from './../screens/RegistrarPaciente'
@@ -38,8 +39,11 @@ const ChatApp = () => {
             <IconButton icon='logout-variant' size={28} color='#ffffff' />
           )
         })} />
-        <ChatAppStack.Screen name='Room'component={RoomScreen} options={({ route }) => ({
-          title: route.params.threads.name
+        <ChatAppStack.Screen name='Room'component={RoomScreen} options={({ route, navigation }) => ({
+          title: route.params.threads.name,
+          headerRight: () => (
+            <IconButton icon='message-plus' size={28} color='#ffffff' onPress={() => navigation.navigate('AddUser')} />
+          ),
         })} />
       </ChatAppStack.Navigator>
   );
@@ -53,6 +57,7 @@ export default HomeStack = () => {
     <ModalStack.Screen name='ListarPaciente' component={ListarPaciente} />
     <ModalStack.Screen name='ChatApp' component={ChatApp} />
     <ModalStack.Screen name='AddRoom' component={AddRoomScreen} />
+    <ModalStack.Screen name='AddUser' component={AddUserScreen} />
     </ModalStack.Navigator>
   );
 }

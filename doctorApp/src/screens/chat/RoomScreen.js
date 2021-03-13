@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = ({ threads, messages, user }) => {
+const mapStateToProps = ({ messages, user }) => {
   return {
     newMessages: messages.newMessages,
     messages: messages.messages,

@@ -5,13 +5,21 @@ import FormButton from '../../components/chat/FormButton'
 import FormInput from '../../components/chat/FormInput'
 import { connect } from 'react-redux'
 import { createThread } from '../../store/actions/Threads'
-class AddRoomScreen extends Component {
+
+
+const date = new Date()
+const dateString = Date(date)
+class AddUserScreen extends Component {
     state = {
         id: '',
         name: '',
+        users: [{
+            id: '',
+            email: ''
+        }],
         messages: [
             {
-                createdAt: new Date().getTime(),
+                createdAt: Date(dateString),
                 text: '',
                 user: {
                     name: this.props.name,
@@ -21,8 +29,7 @@ class AddRoomScreen extends Component {
         ],
         latestMessage: {
             text: '',
-            createdAt: new Date().getTime(),
-            system: true
+            createdAt: Date(dateString)
         }
     }
 
@@ -33,9 +40,9 @@ class AddRoomScreen extends Component {
                     <IconButton icon='close-circle' size={36} color='rgb(15, 121, 134)' onPress={() => this.props.navigation.goBack()} />
                 </SafeAreaView>
                 <SafeAreaView style={styles.innerContainer}>
-                    <Title styles={styles.title}>Criar uma nova sala de chat</Title>
-                    <FormInput labelName='Nome da sala' value={this.state.name} onChangeText={name => this.setState({name})} clearButtonMode='while-editing' />
-                    <FormButton style={styles.buttonLabel} mode='contained' title='Criar' onPress={() => this.props.onCreatethread(this.state)} disabled={this.state.name.length === 0} />
+                    <Title styles={styles.title}>Adicione um novo usuário a sala</Title>
+                    <FormInput labelName='E-mail do usuário' value={this.state.name} onChangeText={name => this.setState({ name })} clearButtonMode='while-editing' />
+                    <FormButton style={styles.buttonLabel} mode='contained' title='Adicionar' onPress={() => this.props.onCreatethread(this.state)} disabled={this.state.name.length === 0} />
                 </SafeAreaView>
             </SafeAreaView>
         );
@@ -46,6 +53,10 @@ class AddRoomScreen extends Component {
             this.setState({
                 id: '',
                 name: '',
+                users: [{
+                    id: '',
+                    email: ''
+                }],
                 messages: [
                     {
                         createdAt: null,
@@ -58,8 +69,7 @@ class AddRoomScreen extends Component {
                 ],
                 latestMessage: {
                     text: '',
-                    createdAt: null,
-                    system: true
+                    createdAt: null
                 }
             })
 
@@ -98,8 +108,7 @@ const mapStateToProps = ({ threads, user }) => {
         isCreating: threads.isCreating,
         isLoading: threads.isLoading,
         name: user.name,
-        email: user.email,
-        threads: threads.threads
+        email: user.email
 
     }
 }
@@ -113,4 +122,4 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddRoomScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(AddUserScreen);

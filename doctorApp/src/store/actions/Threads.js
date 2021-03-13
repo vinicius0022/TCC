@@ -27,16 +27,18 @@ export const createThread = thread => {
                                 id: '',
                                 idThread: '',
                                 createdAt: '',
-                                text: '',
+                                text: `Você entrou na sala ${thread.name}`,
                                 user: {
                                     id: getState().user.id,
                                     email: getState().user.email
-                                }
+                                },
+                                system: true
                             }
                         ],
                         latestMessage: {
                             text: `Você entrou na sala ${thread.name}.`,
-                            createdAt: thread.latestMessage.createdAt
+                            createdAt: thread.latestMessage.createdAt,
+                            system: true
                         }
 
                     }).catch(err => {
