@@ -24,12 +24,13 @@ export const createThread = thread => {
                         userId: getState().user.id,
                         messages: [
                             {
-                                id: res.data.name,
-                                createdAt: thread.latestMessage.createdAt,
-                                text: `Você entrou na sala ${thread.name}.`,
+                                id: '',
+                                idThread: '',
+                                createdAt: '',
+                                text: '',
                                 user: {
-                                    id: '',
-                                    email: ''
+                                    id: getState().user.id,
+                                    email: getState().user.email
                                 }
                             }
                         ],

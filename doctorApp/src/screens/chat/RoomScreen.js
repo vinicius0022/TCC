@@ -3,108 +3,114 @@ import { GiftedChat, Bubble, Send, SystemMessage } from 'react-native-gifted-cha
 import { ActivityIndicator, View, StyleSheet } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { connect } from 'react-redux';
-import {getMessages} from '../../store/actions/MessagesChat'
-class RoomScreen extends Component {
+import { getMessages, creatingMessages } from '../../store/actions/MessagesChat'
 
-  state = {
-      id: this.props.id,
-      createdAt: new Date().getTime(),
-      text: '',
-      user: {
-        id: this.props.userId,
-        email: this.props.email
+
+function renderBubble(props) {
+  return (
+    <Bubble {...props} wrapperStyle={{
+      right: {
+        backgroundColor: '#6646ee'
       }
-  }
-
- 
-  
-  componentDidMount = () =>{
-      this.props.onGetMessages(this.props.route.params.threads.id)
-      
-  }
-
- 
-  render(){
-    function renderBubble(props) {
-      return (
-        <Bubble {...props} wrapperStyle={{
-            right: {
-              backgroundColor: '#6646ee'
-            }
-          }}
-          textStyle={{
-            right: {
-              color: '#fff'
-            }
-          }}
-        />
-      );
-    }
-    
-    function renderLoading(){
-      return (
-        <View style={styles.loadingContainer}>
-          <ActivityIndicator size='large' color='#6646ee' />
-        </View>
-      );
-    }
-    
-    function renderSend(props){
-      return (
-        <Send {...props}>
-          <View style={styles.sendingContainer}>
-            <IconButton icon='send-circle' size={32} color='rgb(15,121,134)' />
-          </View>
-        </Send>
-      );
-    }
-    
-    function scrollToBottomComponent(){
-      return (
-        <View style={styles.bottomComponentContainer}>
-          <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
-        </View>
-      );
-    }
-    
-    function renderSystemMessage(props){
-      console.log(props)
-      return (
-        <SystemMessage
-          {...props}
-          wrapperStyle={styles.systemMessageWrapper}
-          textStyle={styles.systemMessageText}
-        />
-      );
-    }
-    const getMessages = ''
-    function handleSend(){
-      console.log(this.state) 
-      return this.props.onSendMessage(this.state)
-    }
-    
-    
-
-
-    return (
-    <GiftedChat
-      messages={getMessages}
-      onSend={handleSend}
-      onInputTextChanged={text => this.setState({text})}
-      user={{ id: this.props.userId }}
-      placeholder='Digite a sua mensagem aqui...'
-      alwaysShowSend
-      showUserAvatar
-      scrollToBottom
-      renderBubble={renderBubble}
-      renderLoading={renderLoading}
-      renderSend={renderSend}
-      scrollToBottomComponent={scrollToBottomComponent}
-      renderSystemMessage={renderSystemMessage}
+    }}
+      textStyle={{
+        right: {
+          color: '#fff'
+        }
+      }}
     />
   );
+}
+
+function renderLoading() {
+  return (
+    <View style={styles.loadingContainer}>
+      <ActivityIndicator size='large' color='#6646ee' />
+    </View>
+  );
+}
+
+function renderSendMessage(props) {
+  return (
+    <Send {...props}>
+      <View style={styles.sendingContainer}>
+        <IconButton icon='send-circle' size={32} color='rgb(15,121,134)' />
+      </View>
+    </Send>
+  );
+}
+
+function scrollToBottomComponent() {
+  return (
+    <View style={styles.bottomComponentContainer}>
+      <IconButton icon='chevron-double-down' size={36} color='#6646ee' />
+    </View>
+  );
+}
+
+function renderSystemMessage(props) {
+  return (
+    <SystemMessage
+      {...props}
+      wrapperStyle={styles.systemMessageWrapper}
+      textStyle={styles.systemMessageText}
+    />
+  );
+}
+class RoomScreen extends Component {
+
+
+  state = {
+    messages:[{
+      id: '',
+      createdAt: '',
+      text: '',
+      user: {
+          id: this.props.userId,
+          email: this.props.email,
+          idThread: this.props.route.params.threads.id
+      }
+    }]
   }
 
+ 
+
+  render() {
+
+    const handleSend = async (messages) => {
+      await this.props.onSendMessage(messages);
+    }
+    return (
+      <GiftedChat
+        messages={this.props.messages}
+        onSend={handleSend}
+        user={{
+          id: this.props.userId,
+          idThread: this.props.route.params.threads.id
+        }}
+        placeholder='Digite a sua mensagem aqui...'
+        alwaysShowSend
+        showUserAvatar={true}
+        scrollToBottom
+        renderBubble={renderBubble}
+        renderLoading={renderLoading}
+        renderSend={renderSendMessage}
+        scrollToBottomComponent={scrollToBottomComponent}
+        renderSystemMessage={renderSystemMessage}
+      />
+    );
+  }
+
+  componentDidMount = () => {
+
+    this.props.onGetMessages(this.state.messages)
+  }
+
+  componentDidUpdate = prevProps =>{
+    if(prevProps.newMessages && this.props.newMessages){
+      this.props.onGetMessages(this.state.messages)
+    }
+  }
 
 }
 
@@ -136,22 +142,18 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = ({ threads, messages, user }) => {
   return {
-    id: threads.id,
-    isLoading: threads.isLoading,
+    newMessages: messages.newMessages,
     messages: messages.messages,
-    threads: threads.threads,
     userId: user.id,
     email: user.email
-
-
   }
 }
 
 const mapDispatchToProps = dispatch => {
 
-  return{
-    onGetMessages: thread => dispatch(getMessages(thread)),
-    onSendMessage: messages => dispatch(creatingMessages(messages))
+  return {
+    onGetMessages: message => dispatch(getMessages(message)),
+    onSendMessage: id => dispatch(creatingMessages(id))
   }
 }
 

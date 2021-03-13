@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Alert } from 'react-native'
+import {Alert, View } from 'react-native'
 import {connect } from 'react-redux'
 import Routes from './navigation/Routes'
 import {setMessage} from './store/actions/Message'
@@ -18,6 +18,7 @@ class App extends Component{
     }
     render(){
         return(
+
             <Routes/>
         )
     }

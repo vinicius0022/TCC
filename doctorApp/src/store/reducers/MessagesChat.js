@@ -2,7 +2,8 @@ import { SET_MESSAGES, CREATING_MESSAGES, CREATED_MESSAGES } from '../actions/Ac
 
 export const initialState = {
         messages:[],
-        isLoading: false
+        isLoading: false,
+        newMessages: false
 }
 
 
@@ -14,6 +15,9 @@ export const reducer = (state = initialState, action) => {
             return{
                 ...state,
                 messages: action.payload,
+                isLoading: false,
+                newMessages: true
+
             }
             case CREATING_MESSAGES:
                 return{

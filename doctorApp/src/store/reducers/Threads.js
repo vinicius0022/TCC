@@ -2,7 +2,7 @@ import { THREAD_CREATED, GET_THREAD, CREATING_THREAD, SET_THREADS } from '../act
 
 export const initialState = {
     threads:[],
-    id: null,                        
+    idThread: null,                        
     name: null,
     userId: null,
     messages:[],
@@ -36,7 +36,7 @@ export const reducer = (state = initialState, action) => {
             }
         case THREAD_CREATED: 
             return{
-                id: action.payload.id,                        
+                idThread: action.payload.id,                        
                 name: action.payload.name,
                 userId: action.payload.userId,
                 messages: action.payload.messages,

@@ -4,7 +4,6 @@ import { List, Divider } from 'react-native-paper';
 import { connect } from 'react-redux'
 import { getThreads } from '../../store/actions/Threads';
 import Loading from '../../components/chat/Loading';
-import Room from '../../components/chat/Room';
 
 class HomeScreen extends Component {
 
@@ -12,11 +11,13 @@ class HomeScreen extends Component {
     this.props.onGetThreads()
     if(prevProps.isLoading && !this.props.isLoading){   
         this.setState( {
-            id: '',
+            idThread: '',
+            userId:'',
             name: '',
             messages:[
                 {
                     createdAt: null,
+                    idThread: '',
                     text: '',
                     user: {
                         id: '',
@@ -51,7 +52,7 @@ componentDidMount = () =>{
       <View style={styles.container}>
         <FlatList
           data={this.props.threads}
-          keyExtractor={(item) => item.id}
+          keyExtractor={item => item.idThread}
           ItemSeparatorComponent={() => <Divider />}
           renderItem={({ item }) => (
           <TouchableOpacity onPress={() => this.props.navigation.navigate('Room', {threads: item})}>

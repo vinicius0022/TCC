@@ -17,6 +17,8 @@ import LogoHeader from "../../components/LogoHeader";
 import HomeStack from "../../navigation/HomeStack";
 import { NavigationContainer } from '@react-navigation/native';
 import { login } from '../../store/actions/User'
+import { LogBox } from 'react-native';
+
 
 
 class Login extends Component {
@@ -35,6 +37,7 @@ class Login extends Component {
   render() {
     return (
           <SafeAreaView style={styles.container}>
+              
          <ImageBackground
             style={styles.rect}
             imageStyle={styles.rect_imageStyle}
