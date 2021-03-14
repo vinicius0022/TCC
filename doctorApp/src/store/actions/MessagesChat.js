@@ -1,6 +1,7 @@
 import { SET_MESSAGES, CREATING_MESSAGES, CREATED_MESSAGES } from '../actions/ActionTypes'
 import axios from 'axios'
 import { setMessage } from './Message'
+import { get } from 'react-native/Libraries/Utilities/PixelRatio'
 
 export const getMessages = messages => {
     return (dispatch, getState) => {
@@ -50,7 +51,8 @@ export const creatingMessages = messages => {
                     user: {
                         _id: messages[0].user._id,
                         email: getState().user.email,
-                        idThread: messages[0].user.idThread
+                        idThread: messages[0].user.idThread,
+                        name: getState().user.name
                     }
                 }).catch(err =>{
                     dispatch(setMessages({

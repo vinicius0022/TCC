@@ -1,4 +1,4 @@
-import { THREAD_CREATED, CREATING_THREAD, SET_THREADS } from '../actions/ActionTypes'
+import { THREAD_CREATED, CREATING_THREAD, SET_THREADS, IS_ADDING_USER_TO_ROOM, USER_ADDED_TO_ROOM } from '../actions/ActionTypes'
 import axios from 'axios'
 import { setMessage } from './Message'
 
@@ -35,7 +35,8 @@ export const createThread = thread => {
                                 text: `Você entrou na sala ${thread.name}`,
                                 user: {
                                     _id: getState().user.id,
-                                    email: getState().user.email
+                                    email: getState().user.email,
+                                    name: getState().user.name
                                 },
                                 system: true
                             }
@@ -116,5 +117,46 @@ export const getThreads = () =>{
                 
                 dispatch(setThreads(threads.reverse()))
         })
+    }
+}
+
+export const addUserToRoom = (thread, user) =>{
+
+    return dispatch =>{
+        dispatch(isAdding())
+        axios.post(`/threads/${thread}/users.json`, {...user}).catch(err =>{
+            dispatch(setMessage({
+                title: 'Erro',
+                text: 'Não foi possivel buscar os usuários'
+            }))
+        }).then(res =>{
+            if(res.data.name){
+                axios.put(`/threads/${thread}/users/${res.data.name}.json`,{
+                    name: user.name,
+                    email: user.email
+                }).catch(err => {
+                    dispatch(setMessage({
+                        title: 'Erro',
+                        text: 'Não foi possivel criar a sala, tente novamente mais tarde!'
+                    }))
+                })
+
+            }
+            dispatch(userAddedToRoom(res.data))
+        })
+
+    }
+}
+
+export const userAddedToRoom = users =>{
+    return{
+        type: USER_ADDED_TO_ROOM,
+        payload: users
+    }
+}
+
+export const isAdding = () =>{
+    return{
+        type: IS_ADDING_USER_TO_ROOM
     }
 }

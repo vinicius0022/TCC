@@ -67,6 +67,7 @@ class RoomScreen extends Component {
       text: '',
       user: {
           id: this.props.userId,
+          name: this.props.name,
           email: this.props.email,
           idThread: this.props.route.params.threads.id
       }
@@ -78,6 +79,7 @@ class RoomScreen extends Component {
   render() {
 
     const handleSend = async (messages) => {
+      console.log(messages)
       await this.props.onSendMessage(messages);
     }
     return (
@@ -86,7 +88,8 @@ class RoomScreen extends Component {
         onSend={handleSend}
         user={{
           _id: this.props.userId,
-          idThread: this.props.route.params.threads.id
+          idThread: this.props.route.params.threads.id,
+          name: 'Silas'
         }}
         placeholder='Digite a sua mensagem aqui...'
         alwaysShowSend
@@ -145,7 +148,8 @@ const mapStateToProps = ({ messages, user }) => {
     newMessages: messages.newMessages,
     messages: messages.messages,
     userId: user.id,
-    email: user.email
+    email: user.email,
+    name: user.name
   }
 }
 

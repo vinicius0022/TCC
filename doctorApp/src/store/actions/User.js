@@ -1,5 +1,5 @@
 
-import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS } from './ActionTypes'
+import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS, USER_ADDED_TO_ROOM, IS_ADDING_USER_TO_ROOM} from './ActionTypes'
 import axios from 'axios'
 import { setMessage } from './Message'
 
@@ -212,3 +212,5 @@ export const setUsers = users =>{
         payload: users
     }
 }
+
+

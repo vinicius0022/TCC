@@ -42,10 +42,12 @@ const ChatApp = () => {
         <ChatAppStack.Screen name='Room'component={RoomScreen} options={({ route, navigation }) => ({
           title: route.params.threads.name,
           headerRight: () => (
-            <IconButton icon='message-plus' size={28} color='#ffffff' onPress={() => navigation.navigate('AddUser')} />
+            <IconButton icon='message-plus' size={28} color='#ffffff' onPress={() => navigation.navigate('AddUser', {thread: route.params.threads})} />
           ),
         })} />
-      </ChatAppStack.Navigator>
+        <ChatAppStack.Screen name='AddUser'component={AddUserScreen} options={({ route }) => ({
+        })} />
+    </ChatAppStack.Navigator>
   );
 }
 
@@ -57,7 +59,6 @@ export default HomeStack = () => {
     <ModalStack.Screen name='ListarPaciente' component={ListarPaciente} />
     <ModalStack.Screen name='ChatApp' component={ChatApp} />
     <ModalStack.Screen name='AddRoom' component={AddRoomScreen} />
-    <ModalStack.Screen name='AddUser' component={AddUserScreen} />
     </ModalStack.Navigator>
   );
 }

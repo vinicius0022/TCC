@@ -12,6 +12,10 @@ export const USER_LOADED = 'USER_LOADED'
 
 export const SET_USERS = 'SET_USERS'
 
+export const IS_ADDING_USER_TO_ROOM = 'IS_ADDING_USER_TO_ROOM'
+
+export const USER_ADDED_TO_ROOM = 'USER_ADDED_TO_ROOM'
+
 //Action que apresenta mensagens de possiveis erro ao usuario
 export const SET_MESSAGE = 'SET_MESSAGE'
 

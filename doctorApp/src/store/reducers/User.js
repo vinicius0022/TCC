@@ -1,11 +1,11 @@
-import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS } from '../actions/ActionTypes'
+import { USER_LOGGED_IN, USER_LOGGED_OUT, LOADING_USER, USER_LOADED, SET_USERS, USER_ADDED_TO_ROOM, IS_ADDING_USER_TO_ROOM } from '../actions/ActionTypes'
 
 export const initialState = {
     id: null,
     name: null,
     email: null,
     isAuthentic: false,
-    token: false
+    token: false,
 }
 
 
@@ -41,6 +41,18 @@ export const reducer = (state = initialState, action) => {
                 ...state,
                 user: action.payload,
                 isAuthentic: true
+            }
+
+        case IS_ADDING_USER_TO_ROOM:
+        return{
+            ...state,
+            isAdding: true
+        }
+
+        case USER_ADDED_TO_ROOM:
+            return{
+                ...state,
+                isAdding: false
             }
 
         default:

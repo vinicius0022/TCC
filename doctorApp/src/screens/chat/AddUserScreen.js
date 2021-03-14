@@ -4,34 +4,13 @@ import { IconButton, Title } from 'react-native-paper';
 import FormButton from '../../components/chat/FormButton'
 import FormInput from '../../components/chat/FormInput'
 import { connect } from 'react-redux'
-import { createThread } from '../../store/actions/Threads'
-
-
-const date = new Date()
-const dateString = Date(date)
+import { addUserToRoom } from '../../store/actions/Threads'
 class AddUserScreen extends Component {
     state = {
-        id: '',
-        name: '',
-        users: [{
-            id: '',
+            name: '',
             email: ''
-        }],
-        messages: [
-            {
-                createdAt: Date(dateString),
-                text: '',
-                user: {
-                    name: this.props.name,
-                    email: this.props.email
-                }
-            }
-        ],
-        latestMessage: {
-            text: '',
-            createdAt: Date(dateString)
-        }
     }
+
 
     render() {
         return (
@@ -41,39 +20,18 @@ class AddUserScreen extends Component {
                 </SafeAreaView>
                 <SafeAreaView style={styles.innerContainer}>
                     <Title styles={styles.title}>Adicione um novo usuário a sala</Title>
-                    <FormInput labelName='E-mail do usuário' value={this.state.name} onChangeText={name => this.setState({ name })} clearButtonMode='while-editing' />
-                    <FormButton style={styles.buttonLabel} mode='contained' title='Adicionar' onPress={() => this.props.onCreatethread(this.state)} disabled={this.state.name.length === 0} />
+                    <FormInput labelName='Nome do usuário' value={this.state.name} onChangeText={name => this.setState({ name })} clearButtonMode='while-editing' />
+                    <FormInput labelName='E-mail do usuário' value={this.state.email} onChangeText={email => this.setState({ email })} clearButtonMode='while-editing' />
+                    <FormButton style={styles.buttonLabel} mode='contained' title='Adicionar' onPress={() => this.props.addUserToRoom(this.props.route.params.thread.id, this.state)} disabled={this.state.email.length === 0} />
                 </SafeAreaView>
             </SafeAreaView>
         );
 
     }
     componentDidUpdate = prevProps => {
-        if (prevProps.isLoading && !this.props.isLoading) {
-            this.setState({
-                id: '',
-                name: '',
-                users: [{
-                    id: '',
-                    email: ''
-                }],
-                messages: [
-                    {
-                        createdAt: null,
-                        text: '',
-                        user: {
-                            id: '',
-                            email: ''
-                        }
-                    }
-                ],
-                latestMessage: {
-                    text: '',
-                    createdAt: null
-                }
-            })
-
-            this.props.navigation.navigate('HomeScreen')
+        if (prevProps.isAdding && !this.props.isAdding) {
+            this.setState({name: '', email: ''})
+            this.props.navigation.navigate('Room', this.props.route.params.thread)
         }
     }
 }
@@ -102,13 +60,10 @@ const styles = StyleSheet.create({
     },
 })
 
-const mapStateToProps = ({ threads, user }) => {
+const mapStateToProps = ({ threads }) => {
 
     return {
-        isCreating: threads.isCreating,
-        isLoading: threads.isLoading,
-        name: user.name,
-        email: user.email
+        isAdding: threads.isAdding
 
     }
 }
@@ -116,8 +71,7 @@ const mapStateToProps = ({ threads, user }) => {
 const mapDispatchToProps = dispatch => {
 
     return {
-
-        onCreatethread: threads => dispatch(createThread(threads))
+        addUserToRoom: (thread, user) => dispatch(addUserToRoom(thread, user))
     }
 }
 
