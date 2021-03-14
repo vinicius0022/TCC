@@ -34,18 +34,16 @@ const ChatApp = () => {
         <ChatAppStack.Screen name='HomeScreen' component={HomeScreen} options={({ navigation }) => ({
           headerRight: () => (
             <IconButton icon='message-plus' size={28} color='#ffffff' onPress={() => navigation.navigate('AddRoom')} />
-          ),
-          headerLeft: () => (
-            <IconButton icon='logout-variant' size={28} color='#ffffff' />
           )
         })} />
         <ChatAppStack.Screen name='Room'component={RoomScreen} options={({ route, navigation }) => ({
           title: route.params.threads.name,
           headerRight: () => (
-            <IconButton icon='message-plus' size={28} color='#ffffff' onPress={() => navigation.navigate('AddUser', {thread: route.params.threads})} />
+            <IconButton icon='account-plus' size={28} color='#ffffff' onPress={() => navigation.navigate('AddUser', {thread: route.params.threads})} />
           ),
         })} />
         <ChatAppStack.Screen name='AddUser'component={AddUserScreen} options={({ route }) => ({
+          title: 'Adicione um novo usuário'
         })} />
     </ChatAppStack.Navigator>
   );

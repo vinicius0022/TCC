@@ -89,7 +89,7 @@ class RoomScreen extends Component {
         user={{
           _id: this.props.userId,
           idThread: this.props.route.params.threads.id,
-          name: 'Silas'
+          name: this.props.name
         }}
         placeholder='Digite a sua mensagem aqui...'
         alwaysShowSend

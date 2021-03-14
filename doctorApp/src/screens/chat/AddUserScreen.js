@@ -19,7 +19,6 @@ class AddUserScreen extends Component {
                     <IconButton icon='close-circle' size={36} color='rgb(15, 121, 134)' onPress={() => this.props.navigation.goBack()} />
                 </SafeAreaView>
                 <SafeAreaView style={styles.innerContainer}>
-                    <Title styles={styles.title}>Adicione um novo usuário a sala</Title>
                     <FormInput labelName='Nome do usuário' value={this.state.name} onChangeText={name => this.setState({ name })} clearButtonMode='while-editing' />
                     <FormInput labelName='E-mail do usuário' value={this.state.email} onChangeText={email => this.setState({ email })} clearButtonMode='while-editing' />
                     <FormButton style={styles.buttonLabel} mode='contained' title='Adicionar' onPress={() => this.props.addUserToRoom(this.props.route.params.thread.id, this.state)} disabled={this.state.email.length === 0} />
